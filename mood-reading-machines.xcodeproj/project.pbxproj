@@ -96,6 +96,7 @@
 		6BADDC8A2143244B00661F51 /* RetrySpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetrySpec.swift; sourceTree = "<group>"; };
 		6BADDC8D214324B900661F51 /* BaseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUITests.swift; sourceTree = "<group>"; };
 		6BADDC90214324E300661F51 /* CloudTagViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudTagViewTests.swift; sourceTree = "<group>"; };
+		6BADDC92214334D800661F51 /* mood-reading-machines.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "mood-reading-machines.entitlements"; sourceTree = "<group>"; };
 		6BED69CA2143181A00C39777 /* DefaultContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultContainer.swift; sourceTree = "<group>"; };
 		7BF1CFBA249A108EDBDD3B03 /* Pods_mood_reading_machinesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mood_reading_machinesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C46296ACCD42CB9A5E4BCA16 /* Pods-mood-reading-machines.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mood-reading-machines.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mood-reading-machines/Pods-mood-reading-machines.debug.xcconfig"; sourceTree = "<group>"; };
@@ -157,6 +158,7 @@
 		6B1B1BB02142EC4400EFEA7F /* mood-reading-machines */ = {
 			isa = PBXGroup;
 			children = (
+				6BADDC92214334D800661F51 /* mood-reading-machines.entitlements */,
 				6BED69C82143164D00C39777 /* Commons */,
 				6BED69C5214315E800C39777 /* Data */,
 				6BED69C2214315D400C39777 /* Presentation */,
@@ -428,6 +430,14 @@
 				TargetAttributes = {
 					6B1B1BAD2142EC4400EFEA7F = {
 						CreatedOnToolsVersion = 9.4.1;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+							com.apple.Push = {
+								enabled = 0;
+							};
+						};
 					};
 					6B1B1BC12142EC4700EFEA7F = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -791,16 +801,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YNXZ52FJT8;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = C2WX94X8CG;
 				INFOPLIST_FILE = "mood-reading-machines/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.alinekborges.mood-reading-machines";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alinekborges.mood-reading-machine";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
@@ -809,17 +823,23 @@
 			baseConfigurationReference = 316CCC07615428068A9BADCD /* Pods-mood-reading-machines.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YNXZ52FJT8;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = C2WX94X8CG;
 				INFOPLIST_FILE = "mood-reading-machines/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.alinekborges.mood-reading-machines";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alinekborges.mood-reading-machine";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};
