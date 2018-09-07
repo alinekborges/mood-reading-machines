@@ -1,8 +1,8 @@
-## :pushpin: O que é
+## :pushpin: What is it
 
-### :cyclone: Tarefas
+### :cyclone: Tasks
 
-- [ ] Tarefa 1
+- [ ] Task 1
 
 ### :art: UI reference
 
