@@ -23,6 +23,7 @@ target 'mood-reading-machinesTests' do
     inherit! :search_paths
     
     pod 'Nimble'
+    pod 'Quick'
     pod 'RxBlocking'
     pod 'KIF'
     pod 'KIF/IdentifierTests'
