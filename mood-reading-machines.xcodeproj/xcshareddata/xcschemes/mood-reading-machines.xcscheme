@@ -71,6 +71,18 @@
             ReferencedContainer = "container:mood-reading-machines.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "twitter_private_key"
+            value = "eTOwftoQGoJenb2j59GpWsxbgvwUu0E3MOQwFaLDZAwZO9U755"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "twitter_public_key"
+            value = "uzsmGZMzOLvcyBu5PjfIfKVCV"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
