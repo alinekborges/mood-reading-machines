@@ -28,11 +28,11 @@ extension DefaultContainer {
     
     func registerViews() {
         
-        self.container.register(OnboardingView.self) { resolver in
+        self.container.register(OnboardingView.self) { _ in
             OnboardingView()
         }
         
-        self.container.register(MainView.self) { resolver in
+        self.container.register(MainView.self) { _ in
             MainView()
         }
         
