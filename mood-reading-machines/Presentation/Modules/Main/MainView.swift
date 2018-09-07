@@ -1,20 +1,19 @@
-//___FILEHEADER___
+//
+//  MainView.swift
+//  mood-reading-machines
+//
+//  Created by Aline Borges on 07/09/2018.
+//  Copyright © 2018 Aline Borges. All rights reserved.
+//
 
 import UIKit
 import RxSwift
 import RxCocoa
 
-/*
- Code for dependency injection:
-    self.register(___VARIABLE_moduleName___View.self) { resolver in
-        ___VARIABLE_moduleName___View()
-    }
- */
-
-class ___VARIABLE_moduleName___ViewController: UIViewController {
+class MainView: UIViewController {
     
-    var viewModel: ___VARIABLE_moduleName___ViewModel!
-    let baseView = ___VARIABLE_moduleName___View()
+    var viewModel: MainViewModel!
+    let baseView = MainBaseView()
     
     //weak var delegate: AppActionable?
 
@@ -39,10 +38,10 @@ class ___VARIABLE_moduleName___ViewController: UIViewController {
     
 }
 
-extension ___VARIABLE_moduleName___ViewController {
+extension MainView {
     
     func setupViewModel() {
-        self.viewModel = ___VARIABLE_moduleName___ViewModel()
+        self.viewModel = MainViewModel()
     }
     
     func configureViews() {

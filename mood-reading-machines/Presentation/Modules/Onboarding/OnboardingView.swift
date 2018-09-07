@@ -1,20 +1,19 @@
-//___FILEHEADER___
+//
+//  OnboardingView.swift
+//  mood-reading-machines
+//
+//  Created by Aline Borges on 07/09/2018.
+//  Copyright © 2018 Aline Borges. All rights reserved.
+//
 
 import UIKit
 import RxSwift
 import RxCocoa
 
-/*
- Code for dependency injection:
-    self.container.register(___VARIABLE_moduleName___View.self) { resolver in
-        ___VARIABLE_moduleName___View()
-    }
- */
-
-class ___VARIABLE_moduleName___View: UIViewController {
+class OnboardingView: UIViewController {
     
-    var viewModel: ___VARIABLE_moduleName___ViewModel!
-    let baseView = ___VARIABLE_moduleName___BaseView()
+    var viewModel: OnboardingViewModel!
+    let baseView = OnboardingBaseView()
     
     //weak var delegate: AppActionable?
 
@@ -39,10 +38,10 @@ class ___VARIABLE_moduleName___View: UIViewController {
     
 }
 
-extension ___VARIABLE_moduleName___View {
+extension OnboardingView {
     
     func setupViewModel() {
-        self.viewModel = ___VARIABLE_moduleName___ViewModel()
+        self.viewModel = OnboardingViewModel()
     }
     
     func configureViews() {
