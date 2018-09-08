@@ -47,7 +47,7 @@ class AppCoordinator: Coordinator {
         showMainView("alieeen")
         return 
         
-        if !storage.isLoggedIn {
+        if storage.user == nil {
             showOnboarding()
         } else {
             //TODO: restore user

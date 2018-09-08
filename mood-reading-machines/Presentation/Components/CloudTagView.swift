@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-import Reusable
 import RxSwift
 import RxCocoa
 

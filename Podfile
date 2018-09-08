@@ -3,15 +3,26 @@ platform :ios, '9.0'
 use_frameworks!
 
 def common_pods
+  #Dependency Injection
   pod 'Swinject', '~> 2.0.0'
+  
+  #Reactive
   pod 'RxSwift'
   pod 'RxCocoa'
+  
+  #Networking
   pod 'Moya/RxSwift'
-  pod 'Reusable'
+  
+  #Coding Style
   pod 'SwiftLint'
+  
+  #Utils
   pod 'R.swift'
   pod 'RxSwiftUtilities', '~> 2.0.1'
   pod 'RxSwiftExt'
+  
+  #Security
+  pod 'SwiftKeychainWrapper'
 end
 
 target 'mood-reading-machines' do
