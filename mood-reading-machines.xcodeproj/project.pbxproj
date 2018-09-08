@@ -17,6 +17,12 @@
 		6B6F5E8321444D230072E180 /* TwitterMoyaRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6F5E8221444D230072E180 /* TwitterMoyaRouter.swift */; };
 		6B6F5E85214453D80072E180 /* TwitterAccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6F5E84214453D80072E180 /* TwitterAccessToken.swift */; };
 		6B6F5E8A2144784F0072E180 /* KeychainStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6F5E892144784F0072E180 /* KeychainStorageTests.swift */; };
+		6B6F5E8C2144811B0072E180 /* TwitterRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6F5E8B2144811B0072E180 /* TwitterRepository.swift */; };
+		6B6F5E8E2144812E0072E180 /* APITwitterRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6F5E8D2144812E0072E180 /* APITwitterRepository.swift */; };
+		6B6F5E91214484590072E180 /* MockTwitterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6F5E90214484590072E180 /* MockTwitterService.swift */; };
+		6B6F5E94214484DC0072E180 /* DataMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6F5E93214484DC0072E180 /* DataMock.swift */; };
+		6B6F5E97214485FA0072E180 /* APITwitterRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6F5E96214485FA0072E180 /* APITwitterRepositoryTests.swift */; };
+		6B6F5E992144866F0072E180 /* MockLocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6F5E982144866F0072E180 /* MockLocalStorage.swift */; };
 		6B75B0662142EEF700FB87A3 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 6B75B0652142EEF700FB87A3 /* .swiftlint.yml */; };
 		6BADDC4421431A1A00661F51 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BADDC4321431A1A00661F51 /* R.generated.swift */; };
 		6BADDC4621431A5100661F51 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BADDC4521431A5100661F51 /* Coordinator.swift */; };
@@ -79,6 +85,12 @@
 		6B6F5E8221444D230072E180 /* TwitterMoyaRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterMoyaRouter.swift; sourceTree = "<group>"; };
 		6B6F5E84214453D80072E180 /* TwitterAccessToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterAccessToken.swift; sourceTree = "<group>"; };
 		6B6F5E892144784F0072E180 /* KeychainStorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainStorageTests.swift; sourceTree = "<group>"; };
+		6B6F5E8B2144811B0072E180 /* TwitterRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterRepository.swift; sourceTree = "<group>"; };
+		6B6F5E8D2144812E0072E180 /* APITwitterRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITwitterRepository.swift; sourceTree = "<group>"; };
+		6B6F5E90214484590072E180 /* MockTwitterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTwitterService.swift; sourceTree = "<group>"; };
+		6B6F5E93214484DC0072E180 /* DataMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataMock.swift; sourceTree = "<group>"; };
+		6B6F5E96214485FA0072E180 /* APITwitterRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITwitterRepositoryTests.swift; sourceTree = "<group>"; };
+		6B6F5E982144866F0072E180 /* MockLocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocalStorage.swift; sourceTree = "<group>"; };
 		6B75B0652142EEF700FB87A3 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		6BADDC4321431A1A00661F51 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		6BADDC4521431A5100661F51 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -187,6 +199,7 @@
 		6B1B1BC52142EC4700EFEA7F /* mood-reading-machinesTests */ = {
 			isa = PBXGroup;
 			children = (
+				6B6F5E92214484CA0072E180 /* Mocks */,
 				6B6F5E872144783D0072E180 /* Data */,
 				6BADDC8C214324AE00661F51 /* UITests */,
 				6BADDC892143243B00661F51 /* Other */,
@@ -211,6 +224,7 @@
 		6B6F5E872144783D0072E180 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				6B6F5E95214485DD0072E180 /* Repository */,
 				6B6F5E88214478420072E180 /* Storage */,
 			);
 			path = Data;
@@ -222,6 +236,24 @@
 				6B6F5E892144784F0072E180 /* KeychainStorageTests.swift */,
 			);
 			path = Storage;
+			sourceTree = "<group>";
+		};
+		6B6F5E92214484CA0072E180 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				6B6F5E90214484590072E180 /* MockTwitterService.swift */,
+				6B6F5E93214484DC0072E180 /* DataMock.swift */,
+				6B6F5E982144866F0072E180 /* MockLocalStorage.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		6B6F5E95214485DD0072E180 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				6B6F5E96214485FA0072E180 /* APITwitterRepositoryTests.swift */,
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 		6BADDC4921431BA200661F51 /* Storage */ = {
@@ -390,6 +422,8 @@
 		6BED69C7214315F500C39777 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				6B6F5E8B2144811B0072E180 /* TwitterRepository.swift */,
+				6B6F5E8D2144812E0072E180 /* APITwitterRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -666,11 +700,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B6F5E8C2144811B0072E180 /* TwitterRepository.swift in Sources */,
 				6BADDC6F214321F800661F51 /* ToastView.swift in Sources */,
 				6BADDC732143224300661F51 /* Constants.swift in Sources */,
 				6BADDC832143239A00661F51 /* Observable+Retry.swift in Sources */,
 				6BADDC9D2143492900661F51 /* Tweet.swift in Sources */,
 				6BADDC4621431A5100661F51 /* Coordinator.swift in Sources */,
+				6B6F5E8E2144812E0072E180 /* APITwitterRepository.swift in Sources */,
 				6B6F5E812144484F0072E180 /* User.swift in Sources */,
 				6BADDC6921431DEB00661F51 /* MainView.swift in Sources */,
 				6BADDC9A2143488F00661F51 /* TwitterMoyaService.swift in Sources */,
@@ -706,12 +742,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				6BADDC86214323FC00661F51 /* BaseUITests+Utils.swift in Sources */,
+				6B6F5E992144866F0072E180 /* MockLocalStorage.swift in Sources */,
 				6BADDC882143242700661F51 /* KIF+Utils.swift in Sources */,
 				6B1B1BC72142EC4700EFEA7F /* mood_reading_machinesTests.swift in Sources */,
 				6BADDC8B2143244B00661F51 /* RetrySpec.swift in Sources */,
+				6B6F5E97214485FA0072E180 /* APITwitterRepositoryTests.swift in Sources */,
 				6B6F5E8A2144784F0072E180 /* KeychainStorageTests.swift in Sources */,
 				6BADDC91214324E300661F51 /* CloudTagViewTests.swift in Sources */,
 				6BADDC8E214324B900661F51 /* BaseUITests.swift in Sources */,
+				6B6F5E91214484590072E180 /* MockTwitterService.swift in Sources */,
+				6B6F5E94214484DC0072E180 /* DataMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

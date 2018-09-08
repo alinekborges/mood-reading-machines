@@ -15,6 +15,10 @@ struct TwitterAccessToken: Codable {
         case accessToken = "access_token"
     }
     
+    init(accessToken: String) {
+        self.accessToken = accessToken
+    }
+    
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.accessToken = try container.decode(String.self, forKey: .accessToken)
