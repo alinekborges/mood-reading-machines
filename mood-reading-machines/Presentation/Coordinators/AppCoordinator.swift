@@ -44,6 +44,9 @@ class AppCoordinator: Coordinator {
     
     func start() {
         
+        showMainView("alieeen")
+        return 
+        
         if !storage.isLoggedIn {
             showOnboarding()
         } else {

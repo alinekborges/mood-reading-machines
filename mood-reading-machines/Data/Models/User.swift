@@ -1,0 +1,38 @@
+//
+//  File.swift
+//  mood-reading-machines
+//
+//  Created by Aline Borges on 08/09/2018.
+//  Copyright © 2018 Aline Borges. All rights reserved.
+//
+
+import Foundation
+
+struct User: Codable {
+    let name: String
+    let followersCount: Int
+    let followingCount: Int
+    let profileBackgroundColor: String
+    let profileBackgroundImageUrl: String
+    let profileImageUrl: String
+    
+    enum CodingKeys: String, CodingKey {
+        case name
+        case followersCount = "followers_count"
+        case followingCount = "friends_count"
+        case profileBackgroundColor = "profile_background_color"
+        case profileBackgroundImageUrl = "profile_background_image_url"
+        case profileImageUrl = "profile_image_url"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.name = try container.decode(String.self, forKey: .name)
+        self.followersCount = try container.decode(Int.self, forKey: .followersCount)
+        self.followingCount = try container.decode(Int.self, forKey: .followingCount)
+        self.profileBackgroundColor = try container.decode(String.self, forKey: .profileBackgroundColor)
+        self.profileBackgroundImageUrl = try container.decode(String.self, forKey: .profileBackgroundImageUrl)
+        self.profileImageUrl = try container.decode(String.self, forKey: .profileImageUrl)
+        
+    }
+}

@@ -31,18 +31,3 @@ func arrayJsonSerializedUTF8(json: [String]) -> Data {
         return Data()
     }
 }
-
-func stringArrayToData(array: [String]) -> Data {
-    let data = NSMutableData()
-    let terminator = [0]
-    for string in array {
-        if let encodedString = string.data(using: String.Encoding.utf8) {
-            data.append(encodedString)
-            data.append(terminator, length: 1)
-        } else {
-            NSLog("Cannot encode string \"\(string)\"")
-        }
-    }
-    print(data as Data)
-    return data as Data
-}

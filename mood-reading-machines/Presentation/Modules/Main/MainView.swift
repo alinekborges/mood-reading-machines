@@ -15,9 +15,13 @@ class MainView: UIViewController {
     var viewModel: MainViewModel!
     let baseView = MainBaseView()
     
+    let twitterService: TwitterService
+    let storage = UserDefaultsStorage()
+    
     //weak var delegate: AppActionable?
 
-    init() {
+    init(twitterService: TwitterService) {
+        self.twitterService = twitterService
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -49,6 +53,13 @@ extension MainView {
     }
     
     func setupBindings() {
-
+        //TODO: Just testing out, please remove
+        self.twitterService.authenticate()
+            .map { self.storage.accessToken = $0.accessToken }
+            .flatMap {
+                return self.twitterService.searchUsers("elonmusk")
+            }.subscribe(onSuccess: { tweets in
+                print(tweets)
+            }).disposed(by: rx.disposeBag)
     }
 }
