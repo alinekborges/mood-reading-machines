@@ -22,7 +22,7 @@ class APITwitterRepository: TwitterRepository {
     func getUser(_ displayName: String) -> Single<User> {
         return self.ensureAuthentication()
             .flatMap { _ in
-                return self.service.getUsers(displayName)
+                return self.service.getUser(displayName)
         }
     }
     

@@ -80,6 +80,14 @@ class APITwitterRepositoryTests: XCTestCase {
         
     }
     
-    
+    func test_authentication_shouldBeSaved_afterFirstAuthentication() {
+        
+        self.repository.getTweets("test_user")
+            .subscribe(onSuccess: { _ in }, onError: { _ in })
+            .disposed(by: rx.disposeBag)
+        
+        expect(self.storage.accessToken).toEventually(match("access_token"))
+        
+    }
     
 }
