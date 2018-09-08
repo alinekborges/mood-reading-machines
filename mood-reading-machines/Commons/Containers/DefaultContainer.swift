@@ -32,8 +32,8 @@ extension DefaultContainer {
             OnboardingView()
         }
         
-        self.container.register(MainView.self) { _ in
-            MainView()
+        self.container.register(MainView.self) { resolver in
+            MainView(twitterService: resolver.resolve(TwitterService.self)!)
         }
         
     }
@@ -45,6 +45,19 @@ extension DefaultContainer {
     
     func registerServices() {
         
+        self.container.register(TwitterService.self) { _ in
+            let provider = MoyaProvider<TwitterMoyaRouter>(plugins: self.getDefaultPlugins())
+            return TwitterMoyaService(provider: provider)
+        }
+        
+    }
+    
+    func getDefaultPlugins() -> [PluginType] {
+        #if DEBUG
+        return [NetworkLoggerPlugin(verbose: true)]
+        #else
+        return []
+        #endif
     }
     
 }

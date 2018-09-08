@@ -13,6 +13,7 @@ struct LocalStorageKeys {
     private init() {}
     
     static let isLoggedIn = "logged_in"
+    static let accessToken = "twitter_access_token"
 }
 
 class UserDefaultsStorage: LocalStorage {
@@ -29,6 +30,15 @@ class UserDefaultsStorage: LocalStorage {
             return userDefaults.bool(forKey: LocalStorageKeys.isLoggedIn)
         } set {
             userDefaults.set(newValue, forKey: LocalStorageKeys.isLoggedIn)
+        }
+    }
+    
+    //TODO: Do this in keychain, not User Defaults
+    var accessToken: String? {
+        get {
+            return userDefaults.string(forKey: LocalStorageKeys.accessToken)
+        } set {
+            userDefaults.set(newValue, forKey: LocalStorageKeys.accessToken)
         }
     }
     

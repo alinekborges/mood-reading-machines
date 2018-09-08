@@ -9,20 +9,6 @@
 import Foundation
 import UIKit
 
-struct NetworkingConstants {
-    
-    private init() {}
-    
-    //TODO: Twitter base URL
-    static let baseURL = "https://twitterbaseurl.com"
-    
-    struct Twitter {
-        static let apiKey = getEnvironmentVar("twitter_public_key")
-        static let privateKey = getEnvironmentVar("twitter_private_key")
-    }
-    
-}
-
 struct Constants {
     
     private init() {}
