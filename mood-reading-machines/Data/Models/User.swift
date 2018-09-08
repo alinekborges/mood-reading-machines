@@ -25,6 +25,20 @@ struct User: Codable {
         case profileImageUrl = "profile_image_url"
     }
     
+    init(name: String,
+         followersCount: Int,
+         followingCount: Int,
+         profileBackgroundColor: String,
+         profileBackgroundImageUrl: String,
+         profileImageUrl: String) {
+        self.name = name
+        self.followersCount = followersCount
+        self.followingCount = followingCount
+        self.profileImageUrl = profileImageUrl
+        self.profileBackgroundColor = profileBackgroundColor
+        self.profileBackgroundImageUrl = profileBackgroundImageUrl
+    }
+    
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.name = try container.decode(String.self, forKey: .name)

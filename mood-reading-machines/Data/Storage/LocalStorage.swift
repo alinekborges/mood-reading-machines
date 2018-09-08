@@ -10,7 +10,8 @@ import Foundation
 import RxSwift
 
 protocol LocalStorage: class {
-    var isLoggedIn: Bool { get set }
+    var accessToken: String? { get set }
+    var user: User? { get set }
     
     func clear()
 }

@@ -86,7 +86,7 @@ extension TwitterMoyaRouter: TargetType {
                 "Authorization": "Basic \(encoded)"
             ]
         default:
-            let storage = UserDefaultsStorage()
+            let storage = KeychainStorage()
             guard let token = storage.accessToken else { fatalError("Please authenticate first") }
             return [
                 "Content-type": "application/json",

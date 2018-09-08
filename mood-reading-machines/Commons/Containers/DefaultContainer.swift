@@ -67,7 +67,7 @@ extension DefaultContainer {
     
     func registerStorage() {
         self.container.register(LocalStorage.self) { _ in
-            return UserDefaultsStorage()
+            return KeychainStorage()
         }
     }
     
