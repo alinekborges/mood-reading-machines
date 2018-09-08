@@ -23,8 +23,8 @@ class TwitterMoyaService: TwitterService {
             .map(TwitterAccessToken.self)
     }
     
-    func searchUsers(_ query: String) -> Single<User> {
-        return self.provider.rx.request(.getUser(displayName: query))
+    func getUser(_ displayName: String) -> Single<User> {
+        return self.provider.rx.request(.getUser(displayName: displayName))
             .map(User.self)
     }
     

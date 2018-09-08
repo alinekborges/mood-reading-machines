@@ -56,8 +56,8 @@ extension MainView {
         //TODO: Just testing out, please remove
         self.twitterService.authenticate()
             .map { self.storage.accessToken = $0.accessToken }
-            .flatMap {
-                return self.twitterService.searchUsers("elonmusk")
+            .flatMap { _ in
+                return self.twitterService.getUser("elonmusk")
             }.subscribe(onSuccess: { tweets in
                 print(tweets)
             }).disposed(by: rx.disposeBag)

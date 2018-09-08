@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import RxSwift
 
 protocol LocalStorage: class {
     var accessToken: String? { get set }
