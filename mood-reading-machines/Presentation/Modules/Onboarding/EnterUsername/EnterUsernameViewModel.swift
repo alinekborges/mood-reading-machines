@@ -25,7 +25,7 @@ class EnterUsernameViewModel {
         self.isLoading = loadingIndicator.asDriver()
         
         let userResult = input
-            .throttle(0.8)
+            .throttle(0.5)
             .filter { $0.count > 2 }
             .asObservable()
             .flatMap { input in
@@ -42,8 +42,8 @@ class EnterUsernameViewModel {
             .errors()
         
         self.isValid = Observable.merge(
-            user.map { _ in return true },
-            error.map { _ in return false })
+            user.map { _ in true },
+            error.map { _ in false })
             .asDriver(onErrorJustReturn: false)
         
         self.selectedUser = continueTap
