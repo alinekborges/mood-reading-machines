@@ -9,5 +9,5 @@
 import Foundation
 
 struct Tweet: Codable {
-    var text: String
+    let text: String
 }

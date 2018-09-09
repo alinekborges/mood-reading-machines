@@ -8,10 +8,28 @@
 
 import RxSwift
 import RxCocoa
+import RxSwiftExt
+import RxSwiftUtilities
 
 class MainViewModel {
     
-    init() {
+    let tweets: Driver<[TweetDisplay]>
+    
+    init(user: User, twitterRepository: TwitterRepository, moodReadingService: MoodReadingService) {
         
+        let tweetsResult = twitterRepository
+            .getTweets(user.screenName)
+            .map { array in
+                array.map { TweetDisplay(tweet: $0,
+                                         mood: moodReadingService.predictMood($0.text)) }
+            }
+            .asObservable()
+            .materialize()
+            .share()
+        
+        self.tweets = tweetsResult
+            .elements()
+            .asDriver(onErrorJustReturn: [])
+
     }
 }

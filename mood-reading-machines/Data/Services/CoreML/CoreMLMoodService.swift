@@ -24,26 +24,26 @@ final class CoreMLMoodService: MoodReadingService {
         options: Int(self.options.rawValue)
     )
     
-    func predictMood(_ string: String) -> Single<Sentiment> {
+    func predictMood(_ string: String) -> Sentiment {
         do {
             let inputFeatures = features(from: string)
             // Make prediction only with 2 or more words
             guard inputFeatures.count > 1 else {
-                return Single.error(Error.featuresMissing)
+                throw Error.featuresMissing
             }
             
             let output = try model.prediction(input: inputFeatures)
             
             switch output.classLabel {
             case "Pos":
-                return Single.just(.positive)
+                return .positive
             case "Neg":
-                return Single.just(.negative)
+                return .negative
             default:
-                return Single.just(.neutral)
+                return .neutral
             }
         } catch {
-            return Single.just(.neutral)
+            return .neutral
         }
     }
 }

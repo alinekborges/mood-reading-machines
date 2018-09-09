@@ -11,10 +11,9 @@ import UIKit
 
 class MainBaseView: UIView {
     
-    lazy var label: UILabel = {
-        let label = UILabel()
-        label.text = "MainView"
-        return label
+    lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        return tableView
     }()
     
     init() {
@@ -29,12 +28,11 @@ class MainBaseView: UIView {
     
     func setupSubviews() {
         self.backgroundColor = .white
-        self.addSubview(label)
+        self.addSubview(tableView)
         
-        self.label.prepareForConstraints()
+        self.tableView.prepareForConstraints()
         
-        self.label.centerVertically()
-        self.label.centerHorizontally()
+        self.tableView.pinEdgesToSuperview()
     }
     
 }

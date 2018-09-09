@@ -15,14 +15,16 @@ class MainView: UIViewController {
     var viewModel: MainViewModel!
     let baseView = MainBaseView()
     
-    let twitterService: TwitterService
+    let twitterRepository: TwitterRepository
+    let moodReadingService: MoodReadingService
     let storage = KeychainStorage()
     var user: User!
     
     //weak var delegate: AppActionable?
 
-    init(twitterService: TwitterService) {
-        self.twitterService = twitterService
+    init(twitterRepository: TwitterRepository, moodReadingService: MoodReadingService) {
+        self.twitterRepository = twitterRepository
+        self.moodReadingService = moodReadingService
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -46,21 +48,23 @@ class MainView: UIViewController {
 extension MainView {
     
     func setupViewModel() {
-        self.viewModel = MainViewModel()
+        self.viewModel = MainViewModel(user: self.user,
+                                       twitterRepository: self.twitterRepository,
+                                       moodReadingService: self.moodReadingService)
     }
     
     func configureViews() {
-        
+        self.baseView.tableView.register(TweetCell.self, forCellReuseIdentifier: "TweetCell")
+        self.baseView.tableView.rowHeight = UITableViewAutomaticDimension
+        self.baseView.tableView.estimatedRowHeight = 200
     }
     
     func setupBindings() {
-        //TODO: Just testing out, please remove
-        self.twitterService.authenticate()
-            .map { self.storage.accessToken = $0.accessToken }
-            .flatMap { _ in
-                return self.twitterService.getUser("elonmusk")
-            }.subscribe(onSuccess: { tweets in
-                print(tweets)
-            }).disposed(by: rx.disposeBag)
+        self.viewModel.tweets
+            .drive(self.baseView.tableView.rx
+                .items(cellIdentifier: "TweetCell",
+                       cellType: TweetCell.self)) { _, element, cell in
+                        cell.bind(element)
+            }.disposed(by: rx.disposeBag)
     }
 }
