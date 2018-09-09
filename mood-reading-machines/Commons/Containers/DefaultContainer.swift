@@ -33,8 +33,8 @@ extension DefaultContainer {
             return OnboardingView(enterUsernameView: resolver.resolve(EnterUsernameView.self)!)
         }
         
-        self.container.register(EnterUsernameView.self) { _ in
-            EnterUsernameView()
+        self.container.register(EnterUsernameView.self) { resolver in
+            return EnterUsernameView(repository: resolver.resolve(TwitterRepository.self)!)
         }
         
         self.container.register(MainView.self) { resolver in

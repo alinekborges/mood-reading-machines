@@ -25,6 +25,18 @@ class EnterUsernameBaseView: UIView {
         return textField
     }()
     
+    lazy var activityIndicator: UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        return activityIndicator
+    }()
+    
+    lazy var continueButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.setTitle("Continue", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        return button
+    }()
+    
     init() {
         super.init(frame: CGRect.zero)
         self.setupSubviews()
@@ -39,9 +51,13 @@ class EnterUsernameBaseView: UIView {
         self.backgroundColor = .white
         self.addSubview(titleLabel)
         self.addSubview(textField)
+        self.addSubview(activityIndicator)
+        self.addSubview(continueButton)
         
         self.titleLabel.prepareForConstraints()
         self.textField.prepareForConstraints()
+        self.activityIndicator.prepareForConstraints()
+        self.continueButton.prepareForConstraints()
         
         self.titleLabel.pinSafeTop(40.0)
         self.titleLabel.pinLeft(28.0)
@@ -50,6 +66,13 @@ class EnterUsernameBaseView: UIView {
         self.textField.pinfTopInRelationTo(titleLabel.bottomAnchor, constant: 20.0)
         self.textField.pinLeft(28.0)
         self.textField.pinRight(28.0)
+        
+        self.activityIndicator.centerVerticallyinRelationTo(self.textField.centerYAnchor)
+        self.activityIndicator.pinRight(28.0)
+        self.activityIndicator.stopAnimating()
+        
+        self.continueButton.centerHorizontally()
+        self.continueButton.pinfTopInRelationTo(self.textField.bottomAnchor, constant: 40.0)
         
     }
     

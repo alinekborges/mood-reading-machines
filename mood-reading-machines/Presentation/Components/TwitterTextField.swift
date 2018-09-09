@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import RxSwift
+import RxCocoa
 
 class TwitterTextField: UIView {
     
@@ -19,7 +21,7 @@ class TwitterTextField: UIView {
         return label
     }()
     
-    private lazy var textField: UITextField = {
+    lazy var textField: UITextField = {
         let textField = UITextField()
         return textField
     }()
@@ -37,6 +39,7 @@ class TwitterTextField: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    @discardableResult
     override func becomeFirstResponder() -> Bool {
         return self.textField.becomeFirstResponder()
     }
@@ -51,6 +54,7 @@ class TwitterTextField: UIView {
         
         self.labelMention.pinLeft()
         self.labelMention.centerVertically()
+        self.labelMention.setContentHuggingPriority(UILayoutPriority(rawValue: 500), for: .horizontal)
         
         self.textField.pinfLeftInRelationTo(self.labelMention.rightAnchor, constant: 10.0)
         self.textField.pinRight()
@@ -60,3 +64,12 @@ class TwitterTextField: UIView {
     }
     
 }
+
+extension Reactive where Base: TwitterTextField {
+    
+    var text: ControlProperty<String?> {
+        return base.textField.rx.text
+    }
+    
+}
+

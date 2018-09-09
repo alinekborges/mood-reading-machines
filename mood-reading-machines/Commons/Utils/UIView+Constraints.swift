@@ -37,10 +37,8 @@ extension UIView {
     }
     
     @discardableResult
-    func centerVertically(inRelationTo: UIView, _ offset: CGFloat = 0.0) -> NSLayoutConstraint? {
-        let superview = inRelationTo
-        
-        let constraint = self.centerYAnchor.constraint(equalTo: superview.centerYAnchor, constant: offset)
+    func centerVerticallyinRelationTo(_ anchor: NSLayoutYAxisAnchor, _ offset: CGFloat = 0.0) -> NSLayoutConstraint? {
+        let constraint = self.centerYAnchor.constraint(equalTo: anchor, constant: offset)
         constraint.isActive = true
         return constraint
     }
@@ -54,6 +52,13 @@ extension UIView {
         constraint.isActive = true
         return constraint
         
+    }
+    
+    @discardableResult
+    func centerHorizontallyinRelationTo(_ anchor: NSLayoutXAxisAnchor, _ offset: CGFloat = 0.0) -> NSLayoutConstraint? {
+        let constraint = self.centerXAnchor.constraint(equalTo: anchor, constant: offset)
+        constraint.isActive = true
+        return constraint
     }
     
     @discardableResult

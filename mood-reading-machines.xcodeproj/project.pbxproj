@@ -33,6 +33,7 @@
 		6B6F5EB32144C2550072E180 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6B6F5EB52144C2550072E180 /* Localizable.strings */; };
 		6B6F5EB72144C59D0072E180 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 6B6F5EB62144C59D0072E180 /* .swiftlint.yml */; };
 		6B6F5EB92144C89B0072E180 /* TwitterTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6F5EB82144C89B0072E180 /* TwitterTextField.swift */; };
+		6B6F5EBD21454B110072E180 /* UIActivityIndicator+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6F5EBC21454B110072E180 /* UIActivityIndicator+Rx.swift */; };
 		6BADDC4421431A1A00661F51 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BADDC4321431A1A00661F51 /* R.generated.swift */; };
 		6BADDC4621431A5100661F51 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BADDC4521431A5100661F51 /* Coordinator.swift */; };
 		6BADDC4821431A5700661F51 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BADDC4721431A5700661F51 /* AppCoordinator.swift */; };
@@ -110,6 +111,7 @@
 		6B6F5EB42144C2550072E180 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6B6F5EB62144C59D0072E180 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		6B6F5EB82144C89B0072E180 /* TwitterTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterTextField.swift; sourceTree = "<group>"; };
+		6B6F5EBC21454B110072E180 /* UIActivityIndicator+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIActivityIndicator+Rx.swift"; sourceTree = "<group>"; };
 		6BADDC4321431A1A00661F51 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		6BADDC4521431A5100661F51 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		6BADDC4721431A5700661F51 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
@@ -364,6 +366,7 @@
 				6BADDC7E2143236000661F51 /* CloudTagView+Rx.swift */,
 				6BADDC802143237500661F51 /* UILabel+Rx.swift */,
 				6BADDC822143239A00661F51 /* Observable+Retry.swift */,
+				6B6F5EBC21454B110072E180 /* UIActivityIndicator+Rx.swift */,
 			);
 			path = RxExtensions;
 			sourceTree = "<group>";
@@ -752,6 +755,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B6F5EBD21454B110072E180 /* UIActivityIndicator+Rx.swift in Sources */,
 				6B6F5E8C2144811B0072E180 /* TwitterRepository.swift in Sources */,
 				6BADDC6F214321F800661F51 /* ToastView.swift in Sources */,
 				6BADDC732143224300661F51 /* Constants.swift in Sources */,

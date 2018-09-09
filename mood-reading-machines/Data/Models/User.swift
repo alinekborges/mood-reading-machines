@@ -25,12 +25,12 @@ struct User: Codable {
         case profileImageUrl = "profile_image_url"
     }
     
-    init(name: String,
-         followersCount: Int,
-         followingCount: Int,
-         profileBackgroundColor: String,
-         profileBackgroundImageUrl: String,
-         profileImageUrl: String) {
+    init(name: String = "",
+         followersCount: Int = 0,
+         followingCount: Int = 0,
+         profileBackgroundColor: String = "",
+         profileBackgroundImageUrl: String = "",
+         profileImageUrl: String = "") {
         self.name = name
         self.followersCount = followersCount
         self.followingCount = followingCount

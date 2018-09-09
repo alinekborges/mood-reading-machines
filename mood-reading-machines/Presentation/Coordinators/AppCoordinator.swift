@@ -11,10 +11,10 @@ import UIKit
 import Swinject
 
 enum AppAction {
-    case finishOnboarding(user: String)
+    case finishOnboarding(user: User)
 }
 
-protocol AppActionable {
+protocol AppActionable: class {
     func handle(_ action: AppAction)
 }
 
@@ -31,7 +31,7 @@ class AppCoordinator: Coordinator {
             return window.rootViewController
         }
         set {
-            UIView.transition(with: self.window, duration: 0.5, options: .transitionCrossDissolve, animations: {
+            UIView.transition(with: self.window, duration: 0.1, options: .transitionCrossDissolve, animations: {
                 self.window.rootViewController = newValue
             }, completion: nil)
         }
@@ -44,11 +44,10 @@ class AppCoordinator: Coordinator {
     
     func start() {
 
-        if storage.user == nil {
-            showOnboarding()
+        if let user = storage.user {
+            showMainView(user: user)
         } else {
-            //TODO: restore user
-            showMainView("alieeen")
+            showOnboarding()
         }
     }
     
@@ -59,7 +58,8 @@ extension AppCoordinator: AppActionable {
     func handle(_ action: AppAction) {
         switch action {
         case .finishOnboarding(let user):
-            self.showMainView(user)
+            self.storage.user = user
+            self.showMainView(user: user)
         }
     }
     
@@ -69,11 +69,13 @@ extension AppCoordinator {
     
     fileprivate func showOnboarding() {
         let view = container.resolve(OnboardingView.self)!
+        view.delegate = self
         self.currentView = view
     }
     
-    fileprivate func showMainView(_ user: String) {
+    fileprivate func showMainView(user: User) {
         let view = container.resolve(MainView.self)!
+        view.user = user
         self.currentView = view
     }
     
