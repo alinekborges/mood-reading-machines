@@ -1,0 +1,9 @@
+/* 
+  Localizable.strings
+  mood-reading-machines
+
+  Created by Aline Borges on 08/09/2018.
+  Copyright © 2018 Aline Borges. All rights reserved.
+*/
+
+enter_username_title = "Please enter the @ of any public twitter user";

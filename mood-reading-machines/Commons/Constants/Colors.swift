@@ -15,6 +15,10 @@ extension UIColor {
         return UIColor(red: 77, green: 96, blue: 112)
     }
     
+    @nonobjc class var lightGrey: UIColor {
+        return UIColor(red: 50, green: 50, blue: 50)
+    }
+    
     @nonobjc class var acqua: UIColor {
         return UIColor(red: 80, green: 227, blue: 194)
     }
