@@ -19,4 +19,10 @@ struct Constants {
     
     static let github = "https://www.github.com/alinekborges"
     
+    struct Fonts {
+        
+        static let thinMedium = UIFont(name: "HelveticaNeue-Thin", size: 22.0)
+        static let lightMedium = UIFont(name: "HelveticaNeue-Light", size: 22.0)
+        
+    }
 }

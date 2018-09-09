@@ -67,8 +67,22 @@ extension UIView {
     }
     
     @discardableResult
-    func pinfLeftInRelationTo(heightAnchor: NSLayoutXAxisAnchor, constant: CGFloat) -> NSLayoutConstraint? {
-        let constraint = self.leftAnchor.constraint(equalTo: heightAnchor, constant: constant)
+    func pinfLeftInRelationTo(_ leftAnchor: NSLayoutXAxisAnchor, constant: CGFloat = 0.0) -> NSLayoutConstraint? {
+        let constraint = self.leftAnchor.constraint(equalTo: leftAnchor, constant: constant)
+        constraint.isActive = true
+        return constraint
+    }
+    
+    @discardableResult
+    func pinfRightInRelationTo(_ rightAnchor: NSLayoutXAxisAnchor, constant: CGFloat = 0.0) -> NSLayoutConstraint? {
+        let constraint = self.rightAnchor.constraint(equalTo: rightAnchor, constant: constant)
+        constraint.isActive = true
+        return constraint
+    }
+    
+    @discardableResult
+    func pinfTopInRelationTo(_ topAnchor: NSLayoutYAxisAnchor, constant: CGFloat = 0.0) -> NSLayoutConstraint? {
+        let constraint = self.topAnchor.constraint(equalTo: topAnchor, constant: constant)
         constraint.isActive = true
         return constraint
     }

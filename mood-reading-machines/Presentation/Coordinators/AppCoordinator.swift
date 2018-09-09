@@ -43,10 +43,7 @@ class AppCoordinator: Coordinator {
     }
     
     func start() {
-        
-        showMainView("alieeen")
-        return 
-        
+
         if storage.user == nil {
             showOnboarding()
         } else {

@@ -1,8 +1,8 @@
 //
-//  OnboardingView.swift
+//  EnterUsernameView.swift
 //  mood-reading-machines
 //
-//  Created by Aline Borges on 07/09/2018.
+//  Created by Aline Borges on 08/09/2018.
 //  Copyright © 2018 Aline Borges. All rights reserved.
 //
 
@@ -10,16 +10,14 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class OnboardingView: UIViewController {
+class EnterUsernameView: UIViewController {
     
-    var viewModel: OnboardingViewModel!
-    lazy var baseView = OnboardingBaseView(enterUsernameView: self.enterUsernameView)
-    let enterUsernameView: EnterUsernameView
+    var viewModel: EnterUsernameViewModel!
+    let baseView = EnterUsernameBaseView()
     
     //weak var delegate: AppActionable?
 
-    init(enterUsernameView: EnterUsernameView) {
-        self.enterUsernameView = enterUsernameView
+    init() {
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -40,10 +38,10 @@ class OnboardingView: UIViewController {
     
 }
 
-extension OnboardingView {
+extension EnterUsernameView {
     
     func setupViewModel() {
-        self.viewModel = OnboardingViewModel()
+        self.viewModel = EnterUsernameViewModel()
     }
     
     func configureViews() {
