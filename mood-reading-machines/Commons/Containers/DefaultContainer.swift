@@ -17,6 +17,7 @@ final class DefaultContainer {
     init() {
         self.container = Container()
         self.registerServices()
+        self.registerRepositories()
         self.registerViews()
         self.registerStorage()
     }
@@ -50,6 +51,10 @@ extension DefaultContainer {
             return TwitterMoyaService(provider: provider)
         }
         
+        self.container.register(MoodReadingService.self) { _ in
+            return CoreMLMoodService()
+        }
+        
     }
     
     func getDefaultPlugins() -> [PluginType] {
@@ -58,6 +63,20 @@ extension DefaultContainer {
         #else
         return []
         #endif
+    }
+    
+}
+
+extension DefaultContainer {
+    
+    func registerRepositories() {
+        
+        self.container.register(TwitterRepository.self) { resolver in
+            return APITwitterRepository(
+                service: resolver.resolve(TwitterService.self)!,
+                storage: resolver.resolve(LocalStorage.self)!)
+        }
+        
     }
     
 }
