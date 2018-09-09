@@ -23,6 +23,10 @@
 		6B6F5E94214484DC0072E180 /* DataMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6F5E93214484DC0072E180 /* DataMock.swift */; };
 		6B6F5E97214485FA0072E180 /* APITwitterRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6F5E96214485FA0072E180 /* APITwitterRepositoryTests.swift */; };
 		6B6F5E992144866F0072E180 /* MockLocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6F5E982144866F0072E180 /* MockLocalStorage.swift */; };
+		6B6F5E9D21448EF90072E180 /* MoodReadingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6F5E9C21448EF90072E180 /* MoodReadingService.swift */; };
+		6B6F5E9F21448F060072E180 /* CoreMLMoodService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6F5E9E21448F060072E180 /* CoreMLMoodService.swift */; };
+		6B6F5EA12144B97F0072E180 /* SentimentPolarity.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 6B6F5EA02144B97F0072E180 /* SentimentPolarity.mlmodel */; };
+		6B6F5EA32144BA380072E180 /* Sentiment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6F5EA22144BA380072E180 /* Sentiment.swift */; };
 		6B75B0662142EEF700FB87A3 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 6B75B0652142EEF700FB87A3 /* .swiftlint.yml */; };
 		6BADDC4421431A1A00661F51 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BADDC4321431A1A00661F51 /* R.generated.swift */; };
 		6BADDC4621431A5100661F51 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BADDC4521431A5100661F51 /* Coordinator.swift */; };
@@ -91,6 +95,10 @@
 		6B6F5E93214484DC0072E180 /* DataMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataMock.swift; sourceTree = "<group>"; };
 		6B6F5E96214485FA0072E180 /* APITwitterRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITwitterRepositoryTests.swift; sourceTree = "<group>"; };
 		6B6F5E982144866F0072E180 /* MockLocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocalStorage.swift; sourceTree = "<group>"; };
+		6B6F5E9C21448EF90072E180 /* MoodReadingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodReadingService.swift; sourceTree = "<group>"; };
+		6B6F5E9E21448F060072E180 /* CoreMLMoodService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMLMoodService.swift; sourceTree = "<group>"; };
+		6B6F5EA02144B97F0072E180 /* SentimentPolarity.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = SentimentPolarity.mlmodel; sourceTree = "<group>"; };
+		6B6F5EA22144BA380072E180 /* Sentiment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sentiment.swift; sourceTree = "<group>"; };
 		6B75B0652142EEF700FB87A3 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		6BADDC4321431A1A00661F51 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		6BADDC4521431A5100661F51 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -256,6 +264,26 @@
 			path = Repository;
 			sourceTree = "<group>";
 		};
+		6B6F5E9A21448EDB0072E180 /* Twitter */ = {
+			isa = PBXGroup;
+			children = (
+				6BADDC972143487800661F51 /* TwitterService.swift */,
+				6BADDC992143488F00661F51 /* TwitterMoyaService.swift */,
+				6B6F5E8221444D230072E180 /* TwitterMoyaRouter.swift */,
+			);
+			path = Twitter;
+			sourceTree = "<group>";
+		};
+		6B6F5E9B21448EE80072E180 /* CoreML */ = {
+			isa = PBXGroup;
+			children = (
+				6B6F5EA02144B97F0072E180 /* SentimentPolarity.mlmodel */,
+				6B6F5E9C21448EF90072E180 /* MoodReadingService.swift */,
+				6B6F5E9E21448F060072E180 /* CoreMLMoodService.swift */,
+			);
+			path = CoreML;
+			sourceTree = "<group>";
+		};
 		6BADDC4921431BA200661F51 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
@@ -366,6 +394,7 @@
 				6BADDC9C2143492900661F51 /* Tweet.swift */,
 				6B6F5E802144484F0072E180 /* User.swift */,
 				6B6F5E84214453D80072E180 /* TwitterAccessToken.swift */,
+				6B6F5EA22144BA380072E180 /* Sentiment.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -412,9 +441,8 @@
 		6BED69C6214315F000C39777 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				6BADDC972143487800661F51 /* TwitterService.swift */,
-				6BADDC992143488F00661F51 /* TwitterMoyaService.swift */,
-				6B6F5E8221444D230072E180 /* TwitterMoyaRouter.swift */,
+				6B6F5E9B21448EE80072E180 /* CoreML */,
+				6B6F5E9A21448EDB0072E180 /* Twitter */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -716,6 +744,7 @@
 				6BADDC812143237500661F51 /* UILabel+Rx.swift in Sources */,
 				6BADDC6D214321B200661F51 /* CloudTagView.swift in Sources */,
 				6BADDC7D2143234000661F51 /* Rx+Optionals.swift in Sources */,
+				6B6F5E9D21448EF90072E180 /* MoodReadingService.swift in Sources */,
 				6BADDC4D21431BCF00661F51 /* KeychainStorage.swift in Sources */,
 				6BADDC6321431DDF00661F51 /* OnboardingView.swift in Sources */,
 				6BADDC5E21431D1D00661F51 /* UIView+Constraints.swift in Sources */,
@@ -726,8 +755,11 @@
 				6BADDC4821431A5700661F51 /* AppCoordinator.swift in Sources */,
 				6BADDC77214322A400661F51 /* Colors.swift in Sources */,
 				6BADDC4B21431BBC00661F51 /* LocalStorage.swift in Sources */,
+				6B6F5EA12144B97F0072E180 /* SentimentPolarity.mlmodel in Sources */,
 				6BADDC6821431DEB00661F51 /* MainBaseView.swift in Sources */,
+				6B6F5E9F21448F060072E180 /* CoreMLMoodService.swift in Sources */,
 				6B6F5E85214453D80072E180 /* TwitterAccessToken.swift in Sources */,
+				6B6F5EA32144BA380072E180 /* Sentiment.swift in Sources */,
 				6B6F5E8321444D230072E180 /* TwitterMoyaRouter.swift in Sources */,
 				6BADDC6421431DDF00661F51 /* OnboardingViewModel.swift in Sources */,
 				6BADDC752143229000661F51 /* Networking+Utils.swift in Sources */,
@@ -828,7 +860,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -882,7 +914,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -900,7 +932,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = C2WX94X8CG;
 				INFOPLIST_FILE = "mood-reading-machines/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -924,7 +956,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = C2WX94X8CG;
 				INFOPLIST_FILE = "mood-reading-machines/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
