@@ -17,6 +17,7 @@ class MainView: UIViewController {
     
     let twitterService: TwitterService
     let storage = KeychainStorage()
+    var user: User!
     
     //weak var delegate: AppActionable?
 

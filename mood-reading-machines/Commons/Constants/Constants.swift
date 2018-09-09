@@ -25,4 +25,5 @@ struct Constants {
         static let lightMedium = UIFont(name: "HelveticaNeue-Light", size: 22.0)
         
     }
+    
 }

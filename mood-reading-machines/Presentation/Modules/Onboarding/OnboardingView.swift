@@ -16,7 +16,11 @@ class OnboardingView: UIViewController {
     lazy var baseView = OnboardingBaseView(enterUsernameView: self.enterUsernameView)
     let enterUsernameView: EnterUsernameView
     
-    //weak var delegate: AppActionable?
+    weak var delegate: AppActionable? {
+        didSet {
+            self.enterUsernameView.delegate = self.delegate
+        }
+    }
 
     init(enterUsernameView: EnterUsernameView) {
         self.enterUsernameView = enterUsernameView

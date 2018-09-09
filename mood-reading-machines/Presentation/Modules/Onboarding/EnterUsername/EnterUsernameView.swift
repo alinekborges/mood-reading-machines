@@ -15,9 +15,12 @@ class EnterUsernameView: UIViewController {
     var viewModel: EnterUsernameViewModel!
     let baseView = EnterUsernameBaseView()
     
-    //weak var delegate: AppActionable?
+    let repository: TwitterRepository
+    
+    weak var delegate: AppActionable?
 
-    init() {
+    init(repository: TwitterRepository) {
+        self.repository = repository
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -41,14 +44,33 @@ class EnterUsernameView: UIViewController {
 extension EnterUsernameView {
     
     func setupViewModel() {
-        self.viewModel = EnterUsernameViewModel()
+        self.viewModel = EnterUsernameViewModel(
+            input: self.baseView.textField.rx.text.orEmpty.asSignal(onErrorJustReturn: ""),
+            continueTap: self.baseView.continueButton.rx.tap.asSignal(),
+            repository: self.repository)
     }
     
     func configureViews() {
-        
+        self.baseView.textField.becomeFirstResponder()
     }
     
     func setupBindings() {
-
+        self.viewModel.isLoading
+            .drive(self.baseView.activityIndicator.rx.isLoading)
+            .disposed(by: rx.disposeBag)
+        
+        self.viewModel.isValid
+            .drive(onNext: {
+                print($0)
+            }).disposed(by: rx.disposeBag)
+        
+        self.viewModel.isValid
+            .drive(self.baseView.continueButton.rx.isEnabled)
+            .disposed(by: rx.disposeBag)
+        
+        self.viewModel.selectedUser
+            .drive(onNext: { user in
+                self.delegate?.handle(.finishOnboarding(user: user))
+            }).disposed(by: rx.disposeBag)
     }
 }
