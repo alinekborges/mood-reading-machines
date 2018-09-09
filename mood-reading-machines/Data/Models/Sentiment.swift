@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Sentiment {
+enum Sentiment: String {
     case neutral
     case positive
     case negative

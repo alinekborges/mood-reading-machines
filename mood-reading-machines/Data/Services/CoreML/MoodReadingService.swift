@@ -10,5 +10,5 @@ import Foundation
 import RxSwift
 
 protocol MoodReadingService {
-    func predictMood(_ string: String) -> Single<Sentiment>
+    func predictMood(_ string: String) -> Sentiment
 }

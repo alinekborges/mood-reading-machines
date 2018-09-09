@@ -15,6 +15,7 @@ struct User: Codable {
     let profileBackgroundColor: String
     let profileBackgroundImageUrl: String
     let profileImageUrl: String
+    let screenName: String
     
     enum CodingKeys: String, CodingKey {
         case name
@@ -23,6 +24,7 @@ struct User: Codable {
         case profileBackgroundColor = "profile_background_color"
         case profileBackgroundImageUrl = "profile_background_image_url"
         case profileImageUrl = "profile_image_url"
+        case screenName = "screen_name"
     }
     
     init(name: String = "",
@@ -30,13 +32,15 @@ struct User: Codable {
          followingCount: Int = 0,
          profileBackgroundColor: String = "",
          profileBackgroundImageUrl: String = "",
-         profileImageUrl: String = "") {
+         profileImageUrl: String = "",
+         screenName: String = "") {
         self.name = name
         self.followersCount = followersCount
         self.followingCount = followingCount
         self.profileImageUrl = profileImageUrl
         self.profileBackgroundColor = profileBackgroundColor
         self.profileBackgroundImageUrl = profileBackgroundImageUrl
+        self.screenName = screenName
     }
     
     init(from decoder: Decoder) throws {
@@ -47,6 +51,7 @@ struct User: Codable {
         self.profileBackgroundColor = try container.decode(String.self, forKey: .profileBackgroundColor)
         self.profileBackgroundImageUrl = try container.decode(String.self, forKey: .profileBackgroundImageUrl)
         self.profileImageUrl = try container.decode(String.self, forKey: .profileImageUrl)
+        self.screenName = try container.decode(String.self, forKey: .screenName)
         
     }
 }

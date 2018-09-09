@@ -38,7 +38,8 @@ extension DefaultContainer {
         }
         
         self.container.register(MainView.self) { resolver in
-            MainView(twitterService: resolver.resolve(TwitterService.self)!)
+            return MainView(twitterRepository: resolver.resolve(TwitterRepository.self)!,
+                     moodReadingService: resolver.resolve(MoodReadingService.self)!)
         }
         
     }
