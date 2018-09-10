@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		43DF43711331E4D3386BF40E /* Pods_mood_reading_machines.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB7807A53637F90BB81558A1 /* Pods_mood_reading_machines.framework */; };
 		459CA2EF36C820F8BBF40CFB /* Pods_mood_reading_machinesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF1CFBA249A108EDBDD3B03 /* Pods_mood_reading_machinesTests.framework */; };
+		6B0D7FBC21471AE0008243AE /* AnimatedPieceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0D7FBB21471AE0008243AE /* AnimatedPieceView.swift */; };
+		6B0D7FBE21471C92008243AE /* PuzzleOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0D7FBD21471C92008243AE /* PuzzleOnboardingView.swift */; };
 		6B1B1BB22142EC4400EFEA7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1B1BB12142EC4400EFEA7F /* AppDelegate.swift */; };
 		6B1B1BB92142EC4700EFEA7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B1B1BB82142EC4700EFEA7F /* Assets.xcassets */; };
 		6B1B1BBC2142EC4700EFEA7F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B1B1BBA2142EC4700EFEA7F /* LaunchScreen.storyboard */; };
@@ -41,6 +43,7 @@
 		6B6F5ECA2145D30A0072E180 /* TweetDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6F5EC92145D30A0072E180 /* TweetDisplay.swift */; };
 		6B6F5ECC2145DD260072E180 /* MockMoodReadingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6F5ECB2145DD260072E180 /* MockMoodReadingService.swift */; };
 		6B6F5ECE2145DD7E0072E180 /* MainViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6F5ECD2145DD7E0072E180 /* MainViewModelTests.swift */; };
+		6B7ED29B21472C47000AE14C /* PuzzleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7ED29A21472C47000AE14C /* PuzzleType.swift */; };
 		6BADDC4421431A1A00661F51 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BADDC4321431A1A00661F51 /* R.generated.swift */; };
 		6BADDC4621431A5100661F51 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BADDC4521431A5100661F51 /* Coordinator.swift */; };
 		6BADDC4821431A5700661F51 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BADDC4721431A5700661F51 /* AppCoordinator.swift */; };
@@ -90,6 +93,8 @@
 		279847CA1475F659304A041E /* Pods-mood-reading-machinesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mood-reading-machinesTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-mood-reading-machinesTests/Pods-mood-reading-machinesTests.release.xcconfig"; sourceTree = "<group>"; };
 		316CCC07615428068A9BADCD /* Pods-mood-reading-machines.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mood-reading-machines.release.xcconfig"; path = "Pods/Target Support Files/Pods-mood-reading-machines/Pods-mood-reading-machines.release.xcconfig"; sourceTree = "<group>"; };
 		3DA96106F0A08BF6E3323C3C /* Pods-mood-reading-machinesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mood-reading-machinesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mood-reading-machinesTests/Pods-mood-reading-machinesTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6B0D7FBB21471AE0008243AE /* AnimatedPieceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedPieceView.swift; sourceTree = "<group>"; };
+		6B0D7FBD21471C92008243AE /* PuzzleOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleOnboardingView.swift; sourceTree = "<group>"; };
 		6B1B1BAE2142EC4400EFEA7F /* mood-reading-machines.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "mood-reading-machines.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B1B1BB12142EC4400EFEA7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6B1B1BB82142EC4700EFEA7F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -126,6 +131,7 @@
 		6B6F5EC92145D30A0072E180 /* TweetDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetDisplay.swift; sourceTree = "<group>"; };
 		6B6F5ECB2145DD260072E180 /* MockMoodReadingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMoodReadingService.swift; sourceTree = "<group>"; };
 		6B6F5ECD2145DD7E0072E180 /* MainViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModelTests.swift; sourceTree = "<group>"; };
+		6B7ED29A21472C47000AE14C /* PuzzleType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleType.swift; sourceTree = "<group>"; };
 		6BADDC4321431A1A00661F51 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		6BADDC4521431A5100661F51 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		6BADDC4721431A5700661F51 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
@@ -255,6 +261,16 @@
 				6B6F5EB52144C2550072E180 /* Localizable.strings */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		6B42E1502146D1BF00D155EB /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				6B0D7FBB21471AE0008243AE /* AnimatedPieceView.swift */,
+				6B0D7FBD21471C92008243AE /* PuzzleOnboardingView.swift */,
+				6B7ED29A21472C47000AE14C /* PuzzleType.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		6B6F5E872144783D0072E180 /* Data */ = {
@@ -395,6 +411,7 @@
 		6BADDC6B2143217100661F51 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				6B42E1502146D1BF00D155EB /* Onboarding */,
 				6BADDC6C214321B200661F51 /* CloudTagView.swift */,
 				6BADDC6E214321F800661F51 /* ToastView.swift */,
 				6B6F5EB82144C89B0072E180 /* TwitterTextField.swift */,
@@ -826,8 +843,10 @@
 				6B6F5EA92144BEA30072E180 /* EnterUsernameView.swift in Sources */,
 				6BADDC6321431DDF00661F51 /* OnboardingView.swift in Sources */,
 				6BADDC5E21431D1D00661F51 /* UIView+Constraints.swift in Sources */,
+				6B0D7FBC21471AE0008243AE /* AnimatedPieceView.swift in Sources */,
 				6B1B1BB22142EC4400EFEA7F /* AppDelegate.swift in Sources */,
 				6BADDC6A21431DEB00661F51 /* MainViewModel.swift in Sources */,
+				6B0D7FBE21471C92008243AE /* PuzzleOnboardingView.swift in Sources */,
 				6BADDC982143487800661F51 /* TwitterService.swift in Sources */,
 				6BADDC7F2143236000661F51 /* CloudTagView+Rx.swift in Sources */,
 				6B6F5EAA2144BEA30072E180 /* EnterUsernameViewModel.swift in Sources */,
@@ -838,6 +857,7 @@
 				6BADDC6821431DEB00661F51 /* MainBaseView.swift in Sources */,
 				6B6F5E9F21448F060072E180 /* CoreMLMoodService.swift in Sources */,
 				6B6F5E85214453D80072E180 /* TwitterAccessToken.swift in Sources */,
+				6B7ED29B21472C47000AE14C /* PuzzleType.swift in Sources */,
 				6B6F5EA32144BA380072E180 /* Sentiment.swift in Sources */,
 				6B6F5E8321444D230072E180 /* TwitterMoyaRouter.swift in Sources */,
 				6BADDC6421431DDF00661F51 /* OnboardingViewModel.swift in Sources */,

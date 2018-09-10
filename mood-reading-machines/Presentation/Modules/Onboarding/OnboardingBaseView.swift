@@ -36,6 +36,11 @@ class OnboardingBaseView: UIView {
         return view
     }()
     
+    lazy var puzzleOnboardingView: PuzzleOnboardingView = {
+        let view = PuzzleOnboardingView()
+        return view
+    }()
+    
     lazy var viewImage1: UIView = {
         let view = UIView()
         view.backgroundColor = .yellow
@@ -92,7 +97,8 @@ class OnboardingBaseView: UIView {
         self.contentView.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
         
         self.setupPages()
-        self.setupImage1()
+        self.setupPuzzleView()
+        //self.setupImage1()
         //self.setupImage2()
     }
     
@@ -120,6 +126,19 @@ class OnboardingBaseView: UIView {
         enterUsernameView.view.pinBottom()
         enterUsernameView.view.pinfLeftInRelationTo(page2.rightAnchor)
         
+    }
+    
+    func setupPuzzleView() {
+        
+        self.addSubview(puzzleOnboardingView)
+        
+        self.puzzleOnboardingView.prepareForConstraints()
+        
+        puzzleOnboardingView.pinLeft(30.0)
+        puzzleOnboardingView.pinRight(30.0)
+        puzzleOnboardingView.pinTop(50.0)
+        
+        puzzleOnboardingView.widthAnchor.constraint(equalTo: puzzleOnboardingView.heightAnchor).isActive = true
     }
     
     func setupImage1() {

@@ -47,7 +47,7 @@ class OnboardingView: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.setupAnimations()
+        //self.setupAnimations()
     }
     
 }
@@ -56,7 +56,7 @@ extension OnboardingView: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let percent = (scrollView.contentOffset.x / (scrollView.contentSize.width - self.view.frame.width)) * 2
         
-        animator?.fractionComplete = percent
+        self.baseView.puzzleOnboardingView.fractionComplete = percent
 
     }
 }
