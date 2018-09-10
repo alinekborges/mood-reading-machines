@@ -43,6 +43,9 @@ class AppCoordinator: Coordinator {
     }
     
     func start() {
+        
+        showOnboarding()
+        return
 
         if let user = storage.user {
             showMainView(user: user)
