@@ -51,7 +51,7 @@ extension EnterUsernameView {
     }
     
     func configureViews() {
-        self.baseView.textField.becomeFirstResponder()
+        //self.baseView.textField.becomeFirstResponder()
     }
     
     func setupBindings() {
