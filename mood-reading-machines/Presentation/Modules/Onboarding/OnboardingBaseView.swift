@@ -25,13 +25,42 @@ class OnboardingBaseView: UIView {
     
     lazy var page1: UIView = {
         let view = UIView()
-        view.backgroundColor = .red
+        view.backgroundColor = .white
         return view
     }()
     
     lazy var page2: UIView = {
         let view = UIView()
-        view.backgroundColor = .blue
+        view.backgroundColor = .white
+        //view.backgroundColor = UIColor.black.withAlphaComponent(0.03)
+        return view
+    }()
+    
+    lazy var viewImage1: UIView = {
+        let view = UIView()
+        view.backgroundColor = .yellow
+        view.clipsToBounds = true
+        return view
+    }()
+    
+    lazy var viewImage2: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.blue.withAlphaComponent(0.6)
+        view.clipsToBounds = true
+        return view
+    }()
+    
+    lazy var viewImage2Mask: UIView = {
+        let view = UIView()
+        //view.backgroundColor = UIColor.red.withAlphaComponent(0.3)
+        view.backgroundColor = .white
+        return view
+    }()
+
+    lazy var viewImage1Mask: UIView = {
+        let view = UIView()
+        //view.backgroundColor = UIColor.red.withAlphaComponent(0.3)
+        view.backgroundColor = .white
         return view
     }()
     
@@ -63,6 +92,8 @@ class OnboardingBaseView: UIView {
         self.contentView.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
         
         self.setupPages()
+        self.setupImage1()
+        self.setupImage2()
     }
     
     func setupPages() {
@@ -88,6 +119,51 @@ class OnboardingBaseView: UIView {
         enterUsernameView.view.pinTop()
         enterUsernameView.view.pinBottom()
         enterUsernameView.view.pinfLeftInRelationTo(page2.rightAnchor)
+        
+    }
+    
+    func setupImage1() {
+        
+        self.addSubview(viewImage1)
+        self.viewImage1.addSubview(viewImage1Mask)
+        
+        self.viewImage1Mask.prepareForConstraints()
+        self.viewImage1.prepareForConstraints()
+        
+        viewImage1.pinLeft(30.0)
+        viewImage1.pinRight(30.0)
+        viewImage1.pinTop(50.0)
+        
+        viewImage1Mask.widthAnchor.constraint(equalTo: viewImage1.widthAnchor, multiplier: 2).isActive = true
+        viewImage1Mask.heightAnchor.constraint(equalTo: viewImage1.heightAnchor, multiplier: 1).isActive = true
+        
+        viewImage1Mask.centerHorizontally()
+
+        viewImage1Mask.centerVertically(12)
+        
+        viewImage1.widthAnchor.constraint(equalTo: viewImage1.heightAnchor).isActive = true
+        
+    }
+    
+    func setupImage2() {
+        
+        self.addSubview(viewImage2)
+        self.viewImage2.addSubview(viewImage2Mask)
+        
+        self.viewImage2Mask.prepareForConstraints()
+        self.viewImage2.prepareForConstraints()
+        
+        viewImage2.pinLeft(30.0)
+        viewImage2.pinRight(30.0)
+        viewImage2.pinTop(50.0)
+        
+        viewImage2Mask.widthAnchor.constraint(equalTo: viewImage2.widthAnchor, multiplier: 2).isActive = true
+        viewImage2Mask.heightAnchor.constraint(equalTo: viewImage2.heightAnchor, multiplier: 1).isActive = true
+        
+        viewImage2Mask.centerHorizontally()
+        viewImage2Mask.centerVertically(-12)
+        
+        viewImage2.widthAnchor.constraint(equalTo: viewImage2.heightAnchor).isActive = true
         
     }
     
