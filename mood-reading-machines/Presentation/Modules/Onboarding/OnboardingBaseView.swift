@@ -31,8 +31,8 @@ class OnboardingBaseView: UIView {
     
     lazy var page2: UIView = {
         let view = UIView()
-        view.backgroundColor = .white
-        //view.backgroundColor = UIColor.black.withAlphaComponent(0.03)
+        //view.backgroundColor = .white
+        view.backgroundColor = UIColor.black.withAlphaComponent(0.03)
         return view
     }()
     
@@ -52,8 +52,8 @@ class OnboardingBaseView: UIView {
     
     lazy var viewImage2Mask: UIView = {
         let view = UIView()
-        //view.backgroundColor = UIColor.red.withAlphaComponent(0.3)
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor.red.withAlphaComponent(0.3)
+        //view.backgroundColor = .white
         return view
     }()
 
@@ -93,7 +93,7 @@ class OnboardingBaseView: UIView {
         
         self.setupPages()
         self.setupImage1()
-        self.setupImage2()
+        //self.setupImage2()
     }
     
     func setupPages() {
@@ -127,21 +127,27 @@ class OnboardingBaseView: UIView {
         self.addSubview(viewImage1)
         self.viewImage1.addSubview(viewImage1Mask)
         
-        self.viewImage1Mask.prepareForConstraints()
+        //self.viewImage1Mask.prepareForConstraints()
         self.viewImage1.prepareForConstraints()
         
         viewImage1.pinLeft(30.0)
         viewImage1.pinRight(30.0)
         viewImage1.pinTop(50.0)
         
-        viewImage1Mask.widthAnchor.constraint(equalTo: viewImage1.widthAnchor, multiplier: 2).isActive = true
-        viewImage1Mask.heightAnchor.constraint(equalTo: viewImage1.heightAnchor, multiplier: 1).isActive = true
+        viewImage1Mask.frame = viewImage1.bounds
+        viewImage1Mask.bounds = viewImage1.bounds
+        viewImage2Mask.frame.origin.x -= 30
         
-        viewImage1Mask.centerHorizontally()
-
-        viewImage1Mask.centerVertically(12)
+//        viewImage1Mask.widthAnchor.constraint(equalTo: viewImage1.widthAnchor, multiplier: 2).isActive = true
+//        viewImage1Mask.heightAnchor.constraint(equalTo: viewImage1.heightAnchor, multiplier: 1).isActive = true
+//
+//        viewImage1Mask.centerHorizontally()
+//
+//        viewImage1Mask.centerVertically(12)
         
         viewImage1.widthAnchor.constraint(equalTo: viewImage1.heightAnchor).isActive = true
+        
+        //viewImage1.mask = viewImage1Mask
         
     }
     
