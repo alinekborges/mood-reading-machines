@@ -18,7 +18,7 @@ class PuzzleOnboardingView: UIView {
     }
     
     lazy var triangle1: AnimatedPieceView = {
-        let triangle = AnimatedPieceView()
+        let triangle = AnimatedPieceView(type: PuzzleType.top)
         return triangle
     }()
     
@@ -32,7 +32,7 @@ class PuzzleOnboardingView: UIView {
     }
     
     func setupViews() {
-        self.backgroundColor = .blue
+        self.backgroundColor = .white
         
         setupConstraints()
     }
