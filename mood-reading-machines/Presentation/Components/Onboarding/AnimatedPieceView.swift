@@ -29,13 +29,15 @@ class AnimatedPieceView: UIView {
     
     var currentMask: UIView?
     
-    var puzzleType: PuzzleType = .largeLeft
+    var puzzleType: PuzzleType = .largeLeftTop
     
-    lazy var submask1: UIView = {
-        let mask = UIView(frame: self.currentMask!.bounds)
-        mask.backgroundColor = .yellow
-        return mask
-    }()
+    lazy var submasks: [PuzzleMask] = []
+    
+    init(type: PuzzleType) {
+        super.init(frame: CGRect.zero)
+        self.puzzleType = type
+        self.setupViews()
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -60,9 +62,11 @@ class AnimatedPieceView: UIView {
         
         self.currentMask?.backgroundColor = .clear
         
-        self.currentMask?.addSubview(self.submask1)
-        self.submask1.layer.anchorPoint = self.puzzleType.anchorPoint
-        submask1.transform = self.puzzleType.transform
+        self.submasks = getMaskViews(forType: self.puzzleType)
+        
+        submasks.forEach { view in
+            self.currentMask?.addSubview(view)
+        }
         
         self.mask = currentMask
         //self.clipsToBounds = false
@@ -71,9 +75,31 @@ class AnimatedPieceView: UIView {
         self.setupAnimator()
     }
     
+    func getMaskViews(forType type: PuzzleType) -> [PuzzleMask] {
+        
+        guard let currentMask = self.currentMask else { return [] }
+        
+        let bounds = currentMask.bounds
+        
+        switch type {
+        case .largeLeftTop:
+            return [LeftTopMask(frame: bounds)]
+        case .largeLeftBottom:
+            return [LeftBottomMask(frame: bounds)]
+        case .largeRightTop:
+            return [RightTopMask(frame: bounds)]
+        case .largeRightBottom:
+            return [RightBottomMask(frame: bounds)]
+        case .top:
+            return [RightTopMask(frame: bounds), LeftTopMask(frame: bounds)]
+        }
+    }
+    
     func setupAnimator() {
         self.animator = UIViewPropertyAnimator(duration: 2, curve: .linear, animations: {
-            self.submask1.transform = self.puzzleType.endTransform
+            self.submasks.forEach {
+                $0.transform = $0.endTransform
+            }
         })
     }
     
