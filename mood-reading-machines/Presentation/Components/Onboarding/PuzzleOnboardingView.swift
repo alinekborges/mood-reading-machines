@@ -13,14 +13,27 @@ class PuzzleOnboardingView: UIView {
     
     var fractionComplete: CGFloat = 0.0 {
         didSet {
-            self.triangle1.fractionComplete = fractionComplete
+            setAnimatorsPercentage(fractionComplete)
         }
     }
     
-    lazy var triangle1: AnimatedPieceView = {
-        let triangle = AnimatedPieceView(type: PuzzleType.top)
-        return triangle
+    private lazy var pieces: [AnimatedPieceView] = {
+        let piece1 = AnimatedPieceView(type: PuzzleType.largeLeftBottom)
+        let piece2 = AnimatedPieceView(type: PuzzleType.largeRightTop)
+        return [piece1, piece2]
     }()
+    
+    private lazy var imageViews: [UIImageView] = {
+        let imageView1 = UIImageView(image: #imageLiteral(resourceName: "sad"))
+        imageView1.contentMode = .scaleAspectFill
+        let imageView2 = UIImageView(image: #imageLiteral(resourceName: "happy"))
+        imageView1.contentMode = .scaleAspectFill
+        return [imageView2, imageView1]
+    }()
+    
+    private var leftConstraints: [NSLayoutConstraint] = []
+    
+    var dismissAnimators: [UIViewPropertyAnimator] = []
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -32,18 +45,77 @@ class PuzzleOnboardingView: UIView {
     }
     
     func setupViews() {
-        self.backgroundColor = .white
+        self.backgroundColor = .clear
         
         setupConstraints()
+        setupAnimators()
     }
     
     func setupConstraints() {
-        self.addSubview(triangle1)
-        self.triangle1.prepareForConstraints()
         
-        self.triangle1.pinEdgesToSuperview()
+        zip(self.pieces, self.imageViews).forEach { piece, imageView in
+            
+            self.addSubview(piece)
+            piece.addSubview(imageView)
+            
+            piece.prepareForConstraints()
+            imageView.prepareForConstraints()
+            
+            piece.pinTop()
+            piece.pinBottom()
+            piece.widthAnchor.constraint(equalTo: piece.heightAnchor, multiplier: 1).isActive = true
+            
+            imageView.pinEdgesToSuperview()
+            
+            if let leftConstraint = piece.pinLeft() {
+                self.leftConstraints.append(leftConstraint)
+            }
+            self.layoutIfNeeded()
+        }
+   
+    }
+    
+    func setupAnimators() {
+        let animator1 = UIViewPropertyAnimator(duration: 2,
+                                               curve: .easeIn) {
+            self.leftConstraints.first?.constant -= 600
+            self.pieces.first?.alpha = 0
+            self.layoutIfNeeded()
+        }
         
-        //self.clipsToBounds = false
+        let animator2 = UIViewPropertyAnimator(duration: 2,
+                                              curve: .easeOut) {
+            self.leftConstraints.last?.constant -= 600
+            
+            self.layoutIfNeeded()
+        }
+        
+        let animator3 = UIViewPropertyAnimator(duration: 2,
+                                               controlPoint1: CGPoint(x: 0.2, y: 0.8),
+                                               controlPoint2: CGPoint(x: 0.2, y: 0.8)) {
+            self.pieces.last?.alpha = 0
+            self.pieces.first?.alpha = 0
+        }
+        
+        self.dismissAnimators.append(animator1)
+        self.dismissAnimators.append(animator2)
+        self.dismissAnimators.append(animator3)
+        
+        self.dismissAnimators.forEach {
+            $0.pausesOnCompletion = false
+            $0.scrubsLinearly = false
+        }
+    }
+    
+    func setAnimatorsPercentage(_ fractionComplete: CGFloat) {
+        if fractionComplete < 0.5 {
+            self.dismissAnimators.forEach { $0.fractionComplete = 0 }
+            self.pieces.forEach { $0.fractionComplete = fractionComplete * 2 }
+        } else {
+            self.pieces.forEach { $0.fractionComplete = 1 }
+            self.dismissAnimators.forEach { $0.fractionComplete = (fractionComplete - 0.5) * 2 }
+        }
+        
     }
     
 }

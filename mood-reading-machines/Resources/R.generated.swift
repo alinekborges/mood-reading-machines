@@ -40,8 +40,23 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 0 images.
+  /// This `R.image` struct is generated, and contains static references to 2 images.
   struct image {
+    /// Image `happy`.
+    static let happy = Rswift.ImageResource(bundle: R.hostingBundle, name: "happy")
+    /// Image `sad`.
+    static let sad = Rswift.ImageResource(bundle: R.hostingBundle, name: "sad")
+    
+    /// `UIImage(named: "happy", bundle: ..., traitCollection: ...)`
+    static func happy(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.happy, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "sad", bundle: ..., traitCollection: ...)`
+    static func sad(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.sad, compatibleWith: traitCollection)
+    }
+    
     fileprivate init() {}
   }
   
@@ -75,12 +90,23 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 1 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 2 localization keys.
     struct localizable {
+      /// en translation: Ever wondered what would happen if a robot could read your feelings?
+      /// 
+      /// Locales: en
+      static let onboarding_page1_title = Rswift.StringResource(key: "onboarding_page1_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Please enter the @ of any public twitter user
       /// 
       /// Locales: en
       static let enter_username_title = Rswift.StringResource(key: "enter_username_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      
+      /// en translation: Ever wondered what would happen if a robot could read your feelings?
+      /// 
+      /// Locales: en
+      static func onboarding_page1_title(_: Void = ()) -> String {
+        return NSLocalizedString("onboarding_page1_title", bundle: R.hostingBundle, comment: "")
+      }
       
       /// en translation: Please enter the @ of any public twitter user
       /// 

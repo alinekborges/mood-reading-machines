@@ -22,6 +22,7 @@ struct Constants {
     struct Fonts {
         
         static let thinMedium = UIFont(name: "HelveticaNeue-Thin", size: 22.0)
+        static let thinLarge = UIFont(name: "HelveticaNeue-Thin", size: 30.0)
         static let lightMedium = UIFont(name: "HelveticaNeue-Light", size: 22.0)
         
     }

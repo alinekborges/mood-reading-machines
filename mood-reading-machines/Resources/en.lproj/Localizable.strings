@@ -6,4 +6,6 @@
   Copyright © 2018 Aline Borges. All rights reserved.
 */
 
+//Onboarding
 enter_username_title = "Please enter the @ of any public twitter user";
+onboarding_page1_title = "Ever wondered what would happen if a robot could read your feelings?";

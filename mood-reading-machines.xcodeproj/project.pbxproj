@@ -12,7 +12,6 @@
 		6B0D7FBC21471AE0008243AE /* AnimatedPieceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0D7FBB21471AE0008243AE /* AnimatedPieceView.swift */; };
 		6B0D7FBE21471C92008243AE /* PuzzleOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0D7FBD21471C92008243AE /* PuzzleOnboardingView.swift */; };
 		6B1B1BB22142EC4400EFEA7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1B1BB12142EC4400EFEA7F /* AppDelegate.swift */; };
-		6B1B1BB92142EC4700EFEA7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B1B1BB82142EC4700EFEA7F /* Assets.xcassets */; };
 		6B1B1BBC2142EC4700EFEA7F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B1B1BBA2142EC4700EFEA7F /* LaunchScreen.storyboard */; };
 		6B1B1BC72142EC4700EFEA7F /* mood_reading_machinesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1B1BC62142EC4700EFEA7F /* mood_reading_machinesTests.swift */; };
 		6B6F5E812144484F0072E180 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6F5E802144484F0072E180 /* User.swift */; };
@@ -83,6 +82,7 @@
 		6BADDC9A2143488F00661F51 /* TwitterMoyaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BADDC992143488F00661F51 /* TwitterMoyaService.swift */; };
 		6BADDC9D2143492900661F51 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BADDC9C2143492900661F51 /* Tweet.swift */; };
 		6BED69CB2143181A00C39777 /* DefaultContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BED69CA2143181A00C39777 /* DefaultContainer.swift */; };
+		6BEDCAAD2150742000800DFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BEDCAAC2150742000800DFD /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,7 +103,6 @@
 		6B0D7FBD21471C92008243AE /* PuzzleOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleOnboardingView.swift; sourceTree = "<group>"; };
 		6B1B1BAE2142EC4400EFEA7F /* mood-reading-machines.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "mood-reading-machines.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B1B1BB12142EC4400EFEA7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6B1B1BB82142EC4700EFEA7F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6B1B1BBB2142EC4700EFEA7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6B1B1BBD2142EC4700EFEA7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6B1B1BC22142EC4700EFEA7F /* mood-reading-machinesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "mood-reading-machinesTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -178,6 +177,7 @@
 		6BADDC992143488F00661F51 /* TwitterMoyaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterMoyaService.swift; sourceTree = "<group>"; };
 		6BADDC9C2143492900661F51 /* Tweet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		6BED69CA2143181A00C39777 /* DefaultContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultContainer.swift; sourceTree = "<group>"; };
+		6BEDCAAC2150742000800DFD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../../../../../.Trash/Assets.xcassets; sourceTree = "<group>"; };
 		7BF1CFBA249A108EDBDD3B03 /* Pods_mood_reading_machinesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mood_reading_machinesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C46296ACCD42CB9A5E4BCA16 /* Pods-mood-reading-machines.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mood-reading-machines.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mood-reading-machines/Pods-mood-reading-machines.debug.xcconfig"; sourceTree = "<group>"; };
 		FB7807A53637F90BB81558A1 /* Pods_mood_reading_machines.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mood_reading_machines.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -268,8 +268,8 @@
 			children = (
 				6BADDC92214334D800661F51 /* mood-reading-machines.entitlements */,
 				6BADDC4321431A1A00661F51 /* R.generated.swift */,
+				6BEDCAAC2150742000800DFD /* Assets.xcassets */,
 				6B1B1BBA2142EC4700EFEA7F /* LaunchScreen.storyboard */,
-				6B1B1BB82142EC4700EFEA7F /* Assets.xcassets */,
 				6B6F5EB52144C2550072E180 /* Localizable.strings */,
 			);
 			path = Resources;
@@ -695,8 +695,8 @@
 			files = (
 				6B6F5EB72144C59D0072E180 /* .swiftlint.yml in Resources */,
 				6B6F5EB32144C2550072E180 /* Localizable.strings in Resources */,
+				6BEDCAAD2150742000800DFD /* Assets.xcassets in Resources */,
 				6B1B1BBC2142EC4700EFEA7F /* LaunchScreen.storyboard in Resources */,
-				6B1B1BB92142EC4700EFEA7F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

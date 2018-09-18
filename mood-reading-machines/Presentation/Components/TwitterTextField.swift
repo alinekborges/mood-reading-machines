@@ -72,4 +72,3 @@ extension Reactive where Base: TwitterTextField {
     }
     
 }
-

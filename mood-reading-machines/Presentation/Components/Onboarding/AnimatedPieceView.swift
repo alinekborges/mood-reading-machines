@@ -49,7 +49,7 @@ class AnimatedPieceView: UIView {
     }
     
     func setupViews() {
-        self.backgroundColor = .red
+        self.backgroundColor = .clear
         print(self.bounds)
     }
     
@@ -69,8 +69,7 @@ class AnimatedPieceView: UIView {
         }
         
         self.mask = currentMask
-        //self.clipsToBounds = false
-        //self.addSubview(currentMask!)
+        self.clipsToBounds = true
         
         self.setupAnimator()
     }
