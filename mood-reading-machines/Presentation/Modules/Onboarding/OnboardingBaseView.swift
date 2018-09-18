@@ -31,8 +31,7 @@ class OnboardingBaseView: UIView {
     
     lazy var page2: UIView = {
         let view = UIView()
-        //view.backgroundColor = .white
-        view.backgroundColor = UIColor.black.withAlphaComponent(0.03)
+        view.backgroundColor = .white
         return view
     }()
     
@@ -41,34 +40,21 @@ class OnboardingBaseView: UIView {
         return view
     }()
     
-    lazy var viewImage1: UIView = {
-        let view = UIView()
-        view.backgroundColor = .yellow
-        view.clipsToBounds = true
-        return view
+    lazy var title1: UILabel = {
+        let label = UILabel()
+        label.text = R.string.localizable.onboarding_page1_title()
+        label.font = Constants.Fonts.thinLarge
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        return label
     }()
     
-    lazy var viewImage2: UIView = {
-        let view = UIView()
-        view.backgroundColor = UIColor.blue.withAlphaComponent(0.6)
-        view.clipsToBounds = true
-        return view
-    }()
-    
-    lazy var viewImage2Mask: UIView = {
-        let view = UIView()
-        view.backgroundColor = UIColor.red.withAlphaComponent(0.3)
-        //view.backgroundColor = .white
-        return view
+    lazy var title2: UILabel = {
+        let label = UILabel()
+        label.text = R.string.localizable.onboarding_page1_title()
+        return label
     }()
 
-    lazy var viewImage1Mask: UIView = {
-        let view = UIView()
-        //view.backgroundColor = UIColor.red.withAlphaComponent(0.3)
-        view.backgroundColor = .white
-        return view
-    }()
-    
     init(enterUsernameView: EnterUsernameView) {
         self.enterUsernameView = enterUsernameView
         super.init(frame: CGRect.zero)
@@ -98,8 +84,7 @@ class OnboardingBaseView: UIView {
         
         self.setupPages()
         self.setupPuzzleView()
-        //self.setupImage1()
-        //self.setupImage2()
+        self.setupLabels()
     }
     
     func setupPages() {
@@ -136,60 +121,19 @@ class OnboardingBaseView: UIView {
         
         puzzleOnboardingView.pinLeft(30.0)
         puzzleOnboardingView.pinRight(30.0)
-        puzzleOnboardingView.pinTop(50.0)
+        puzzleOnboardingView.pinTop(100.0)
         
         puzzleOnboardingView.widthAnchor.constraint(equalTo: puzzleOnboardingView.heightAnchor).isActive = true
     }
     
-    func setupImage1() {
+    func setupLabels() {
+        page1.addSubview(title1)
+        title1.prepareForConstraints()
         
-        self.addSubview(viewImage1)
-        self.viewImage1.addSubview(viewImage1Mask)
-        
-        //self.viewImage1Mask.prepareForConstraints()
-        self.viewImage1.prepareForConstraints()
-        
-        viewImage1.pinLeft(30.0)
-        viewImage1.pinRight(30.0)
-        viewImage1.pinTop(50.0)
-        
-        viewImage1Mask.frame = viewImage1.bounds
-        viewImage1Mask.bounds = viewImage1.bounds
-        viewImage2Mask.frame.origin.x -= 30
-        
-//        viewImage1Mask.widthAnchor.constraint(equalTo: viewImage1.widthAnchor, multiplier: 2).isActive = true
-//        viewImage1Mask.heightAnchor.constraint(equalTo: viewImage1.heightAnchor, multiplier: 1).isActive = true
-//
-//        viewImage1Mask.centerHorizontally()
-//
-//        viewImage1Mask.centerVertically(12)
-        
-        viewImage1.widthAnchor.constraint(equalTo: viewImage1.heightAnchor).isActive = true
-        
-        //viewImage1.mask = viewImage1Mask
-        
-    }
-    
-    func setupImage2() {
-        
-        self.addSubview(viewImage2)
-        self.viewImage2.addSubview(viewImage2Mask)
-        
-        self.viewImage2Mask.prepareForConstraints()
-        self.viewImage2.prepareForConstraints()
-        
-        viewImage2.pinLeft(30.0)
-        viewImage2.pinRight(30.0)
-        viewImage2.pinTop(50.0)
-        
-        viewImage2Mask.widthAnchor.constraint(equalTo: viewImage2.widthAnchor, multiplier: 2).isActive = true
-        viewImage2Mask.heightAnchor.constraint(equalTo: viewImage2.heightAnchor, multiplier: 1).isActive = true
-        
-        viewImage2Mask.centerHorizontally()
-        viewImage2Mask.centerVertically(-12)
-        
-        viewImage2.widthAnchor.constraint(equalTo: viewImage2.heightAnchor).isActive = true
-        
+        title1.pinLeft(40.0)
+        title1.pinRight(40.0)
+        title1.pinSafeBottom(40.0)
+        title1.pinfTopInRelationTo(self.puzzleOnboardingView.bottomAnchor)
     }
     
 }
