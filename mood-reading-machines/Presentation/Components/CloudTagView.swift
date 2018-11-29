@@ -23,9 +23,9 @@ class CloudTagView: UIView {
     
     private var tagHeight: CGFloat = 36
     
-    private var tagBackgroundColor: UIColor = UIColor.white.withAlphaComponent(0.4)
+    var tagBackgroundColor: UIColor = UIColor.white.withAlphaComponent(0.4)
     
-    private var textColor: UIColor = .black
+    var textColor: UIColor = .black
     
     init() {
         super.init(frame: CGRect(x: 0, y: 0, width: 100, height: 100))

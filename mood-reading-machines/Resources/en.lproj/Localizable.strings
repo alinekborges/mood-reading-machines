@@ -9,3 +9,7 @@
 //Onboarding
 enter_username_title = "Please enter the @ of any public twitter user";
 onboarding_page1_title = "Ever wondered what would happen if a robot could read your feelings?";
+onboarding_page2_title = "Oh well, we are not that far. Want to see me try it on Twitter?";
+
+select_profile_title = "Here are some suggestions of people to read the mood";
+select_profile_button = "Another twitter username";

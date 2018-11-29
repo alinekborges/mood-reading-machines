@@ -40,23 +40,8 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 2 images.
+  /// This `R.image` struct is generated, and contains static references to 0 images.
   struct image {
-    /// Image `happy`.
-    static let happy = Rswift.ImageResource(bundle: R.hostingBundle, name: "happy")
-    /// Image `sad`.
-    static let sad = Rswift.ImageResource(bundle: R.hostingBundle, name: "sad")
-    
-    /// `UIImage(named: "happy", bundle: ..., traitCollection: ...)`
-    static func happy(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.happy, compatibleWith: traitCollection)
-    }
-    
-    /// `UIImage(named: "sad", bundle: ..., traitCollection: ...)`
-    static func sad(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.sad, compatibleWith: traitCollection)
-    }
-    
     fileprivate init() {}
   }
   
@@ -90,22 +75,55 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 2 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 5 localization keys.
     struct localizable {
+      /// en translation: Another twitter username
+      /// 
+      /// Locales: en
+      static let select_profile_button = Rswift.StringResource(key: "select_profile_button", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Ever wondered what would happen if a robot could read your feelings?
       /// 
       /// Locales: en
       static let onboarding_page1_title = Rswift.StringResource(key: "onboarding_page1_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Here are some suggestions of people to read the mood
+      /// 
+      /// Locales: en
+      static let select_profile_title = Rswift.StringResource(key: "select_profile_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Oh well, we are not that far. Want to see me try it on Twitter?
+      /// 
+      /// Locales: en
+      static let onboarding_page2_title = Rswift.StringResource(key: "onboarding_page2_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Please enter the @ of any public twitter user
       /// 
       /// Locales: en
       static let enter_username_title = Rswift.StringResource(key: "enter_username_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      
+      /// en translation: Another twitter username
+      /// 
+      /// Locales: en
+      static func select_profile_button(_: Void = ()) -> String {
+        return NSLocalizedString("select_profile_button", bundle: R.hostingBundle, comment: "")
+      }
       
       /// en translation: Ever wondered what would happen if a robot could read your feelings?
       /// 
       /// Locales: en
       static func onboarding_page1_title(_: Void = ()) -> String {
         return NSLocalizedString("onboarding_page1_title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Here are some suggestions of people to read the mood
+      /// 
+      /// Locales: en
+      static func select_profile_title(_: Void = ()) -> String {
+        return NSLocalizedString("select_profile_title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Oh well, we are not that far. Want to see me try it on Twitter?
+      /// 
+      /// Locales: en
+      static func onboarding_page2_title(_: Void = ()) -> String {
+        return NSLocalizedString("onboarding_page2_title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Please enter the @ of any public twitter user

@@ -86,8 +86,15 @@ extension UIView {
     }
     
     @discardableResult
-    func pinfTopInRelationTo(_ topAnchor: NSLayoutYAxisAnchor, constant: CGFloat = 0.0) -> NSLayoutConstraint? {
+    func pinTopInRelationTo(_ topAnchor: NSLayoutYAxisAnchor, constant: CGFloat = 0.0) -> NSLayoutConstraint? {
         let constraint = self.topAnchor.constraint(equalTo: topAnchor, constant: constant)
+        constraint.isActive = true
+        return constraint
+    }
+    
+    @discardableResult
+    func pinBottomInRelationTo(_ secondAnchor: NSLayoutYAxisAnchor, constant: CGFloat = 0.0) -> NSLayoutConstraint? {
+        let constraint = self.bottomAnchor.constraint(equalTo: secondAnchor, constant: constant)
         constraint.isActive = true
         return constraint
     }
@@ -135,7 +142,7 @@ extension UIView {
         guard let superview = self.superview else {
             return nil
         }
-        let constraint = self.bottomAnchor.constraint(equalTo: superview.bottomAnchor, constant: offset)
+        let constraint = self.bottomAnchor.constraint(equalTo: superview.bottomAnchor, constant: -offset)
         constraint.isActive = true
         return constraint
     }

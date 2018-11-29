@@ -44,6 +44,15 @@ class TwitterTextField: UIView {
         return self.textField.becomeFirstResponder()
     }
     
+    @discardableResult
+    override func resignFirstResponder() -> Bool {
+        return self.textField.becomeFirstResponder()
+    }
+    
+    override var isFirstResponder: Bool {
+        return self.textField.isFirstResponder
+    }
+    
     private func setupViews() {
         
         self.addSubview(labelMention)

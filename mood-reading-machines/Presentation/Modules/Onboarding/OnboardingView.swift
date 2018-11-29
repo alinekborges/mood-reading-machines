@@ -13,20 +13,20 @@ import RxCocoa
 class OnboardingView: UIViewController {
     
     var viewModel: OnboardingViewModel!
-    lazy var baseView = OnboardingBaseView(enterUsernameView: self.enterUsernameView)
-    let enterUsernameView: EnterUsernameView
+    let selectProfileView: SelectProfileView
+    lazy var baseView = OnboardingBaseView(selectProfileView: selectProfileView)
     var animator: UIViewPropertyAnimator?
     
     var pausedTime: CGFloat = 0.0
     
     weak var delegate: AppActionable? {
         didSet {
-            self.enterUsernameView.delegate = self.delegate
+            self.selectProfileView.delegate = self.delegate
         }
     }
 
-    init(enterUsernameView: EnterUsernameView) {
-        self.enterUsernameView = enterUsernameView
+    init(selectProfileView: SelectProfileView) {
+        self.selectProfileView = selectProfileView
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -57,6 +57,7 @@ extension OnboardingView: UIScrollViewDelegate {
         let percent = (scrollView.contentOffset.x / (scrollView.contentSize.width - self.view.frame.width))
         
         self.baseView.puzzleOnboardingView.fractionComplete = percent
+        
     }
 }
 

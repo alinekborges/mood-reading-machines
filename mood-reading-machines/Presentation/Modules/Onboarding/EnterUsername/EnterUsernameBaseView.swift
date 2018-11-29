@@ -63,7 +63,7 @@ class EnterUsernameBaseView: UIView {
         self.titleLabel.pinLeft(28.0)
         self.titleLabel.pinRight(28.0)
         
-        self.textField.pinfTopInRelationTo(titleLabel.bottomAnchor, constant: 20.0)
+        self.textField.pinTopInRelationTo(titleLabel.bottomAnchor, constant: 20.0)
         self.textField.pinLeft(28.0)
         self.textField.pinRight(28.0)
         
@@ -72,7 +72,7 @@ class EnterUsernameBaseView: UIView {
         self.activityIndicator.stopAnimating()
         
         self.continueButton.centerHorizontally()
-        self.continueButton.pinfTopInRelationTo(self.textField.bottomAnchor, constant: 40.0)
+        self.continueButton.pinTopInRelationTo(self.textField.bottomAnchor, constant: 40.0)
         
     }
     
