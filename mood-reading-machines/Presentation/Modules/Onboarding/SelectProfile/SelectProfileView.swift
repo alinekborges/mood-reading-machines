@@ -1,8 +1,8 @@
 //
-//  EnterUsernameView.swift
+//  SelectProfileView.swift
 //  mood-reading-machines
 //
-//  Created by Aline Borges on 08/09/2018.
+//  Created by Aline Borges on 28/11/18.
 //  Copyright © 2018 Aline Borges. All rights reserved.
 //
 
@@ -10,10 +10,10 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class EnterUsernameView: UIViewController {
+class SelectProfileView: UIViewController {
     
-    var viewModel: EnterUsernameViewModel!
-    let baseView = EnterUsernameBaseView()
+    var viewModel: SelectProfileViewModel!
+    let baseView = SelectProfileBaseView()
     
     let repository: TwitterRepository
     
@@ -41,36 +41,40 @@ class EnterUsernameView: UIViewController {
     
 }
 
-extension EnterUsernameView {
+extension SelectProfileView {
     
     func setupViewModel() {
-        self.viewModel = EnterUsernameViewModel(
-            input: self.baseView.textField.rx.text.orEmpty.asSignal(onErrorJustReturn: ""),
-            continueTap: self.baseView.continueButton.rx.tap.asSignal(),
-            repository: self.repository)
+        let input = self.baseView.cloudView.rx.tagSelected
+        self.viewModel = SelectProfileViewModel(input: input,
+                                                repository: self.repository)
     }
     
     func configureViews() {
-        self.baseView.textField.becomeFirstResponder()
+        
     }
     
     func setupBindings() {
-        self.viewModel.isLoading
-            .drive(self.baseView.activityIndicator.rx.isLoading)
+        self.viewModel.usernames
+            .drive(self.baseView.cloudView.rx.items)
             .disposed(by: rx.disposeBag)
         
-        self.viewModel.isValid
-            .drive(onNext: {
-                print($0)
-            }).disposed(by: rx.disposeBag)
-        
-        self.viewModel.isValid
-            .drive(self.baseView.continueButton.rx.isEnabled)
+        self.viewModel.isLoading
+            .drive(onNext: showLoading)
             .disposed(by: rx.disposeBag)
         
         self.viewModel.selectedUser
             .drive(onNext: { user in
                 self.delegate?.handle(.finishOnboarding(user: user))
             }).disposed(by: rx.disposeBag)
+        
+        //TODO: show error!
+    }
+    
+    func showLoading(_ isLoading: Bool) {
+        if isLoading {
+            self.baseView.loadingView.start()
+        } else {
+            self.baseView.loadingView.stop()
+        }
     }
 }

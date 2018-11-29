@@ -30,7 +30,7 @@ extension DefaultContainer {
     func registerViews() {
         
         self.container.register(OnboardingView.self) { resolver in
-            return OnboardingView(enterUsernameView: resolver.resolve(EnterUsernameView.self)!)
+            return OnboardingView(selectProfileView: resolver.resolve(SelectProfileView.self)!)
         }
         
         self.container.register(EnterUsernameView.self) { resolver in
@@ -40,6 +40,10 @@ extension DefaultContainer {
         self.container.register(MainView.self) { resolver in
             return MainView(twitterRepository: resolver.resolve(TwitterRepository.self)!,
                      moodReadingService: resolver.resolve(MoodReadingService.self)!)
+        }
+        
+        self.container.register(SelectProfileView.self) { resolver in
+            return SelectProfileView(repository: resolver.resolve(TwitterRepository.self)!)
         }
         
     }

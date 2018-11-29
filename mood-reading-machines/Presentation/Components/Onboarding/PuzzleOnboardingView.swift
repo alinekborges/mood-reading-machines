@@ -24,9 +24,11 @@ class PuzzleOnboardingView: UIView {
     }()
     
     private lazy var imageViews: [UIImageView] = {
-        let imageView1 = UIImageView(image: #imageLiteral(resourceName: "sad"))
+        let imageView1 = UIImageView()
+        imageView1.backgroundColor = .red
         imageView1.contentMode = .scaleAspectFill
-        let imageView2 = UIImageView(image: #imageLiteral(resourceName: "happy"))
+        let imageView2 = UIImageView()
+        imageView2.backgroundColor = .blue
         imageView1.contentMode = .scaleAspectFill
         return [imageView2, imageView1]
     }()
@@ -49,6 +51,8 @@ class PuzzleOnboardingView: UIView {
         
         setupConstraints()
         setupAnimators()
+        
+        self.isUserInteractionEnabled = false
     }
     
     func setupConstraints() {

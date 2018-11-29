@@ -11,7 +11,7 @@ import UIKit
 
 class OnboardingBaseView: UIView {
     
-    let enterUsernameView: EnterUsernameView
+    let selectProfileView: SelectProfileView
     
     lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -51,12 +51,15 @@ class OnboardingBaseView: UIView {
     
     lazy var title2: UILabel = {
         let label = UILabel()
-        label.text = R.string.localizable.onboarding_page1_title()
+        label.text = R.string.localizable.onboarding_page2_title()
+        label.font = Constants.Fonts.thinLarge
+        label.numberOfLines = 0
+        label.textAlignment = .center
         return label
     }()
 
-    init(enterUsernameView: EnterUsernameView) {
-        self.enterUsernameView = enterUsernameView
+    init(selectProfileView: SelectProfileView) {
+        self.selectProfileView = selectProfileView
         super.init(frame: CGRect.zero)
         self.setupSubviews()
     }
@@ -91,7 +94,7 @@ class OnboardingBaseView: UIView {
         
         self.contentView.addSubview(page1)
         self.contentView.addSubview(page2)
-        self.contentView.addSubview(self.enterUsernameView.view)
+        self.contentView.addSubview(selectProfileView.view)
         
         page1.prepareForConstraints()
         page1.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
@@ -105,11 +108,11 @@ class OnboardingBaseView: UIView {
         page2.pinBottom()
         page2.pinfLeftInRelationTo(page1.rightAnchor)
         
-        enterUsernameView.view.prepareForConstraints()
-        enterUsernameView.view.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
-        enterUsernameView.view.pinTop()
-        enterUsernameView.view.pinBottom()
-        enterUsernameView.view.pinfLeftInRelationTo(page2.rightAnchor)
+        selectProfileView.view.prepareForConstraints()
+        selectProfileView.view.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
+        selectProfileView.view.pinTop()
+        selectProfileView.view.pinBottom()
+        selectProfileView.view.pinfLeftInRelationTo(page2.rightAnchor)
         
     }
     
@@ -130,10 +133,18 @@ class OnboardingBaseView: UIView {
         page1.addSubview(title1)
         title1.prepareForConstraints()
         
+        page2.addSubview(title2)
+        title2.prepareForConstraints()
+        
         title1.pinLeft(40.0)
         title1.pinRight(40.0)
         title1.pinSafeBottom(40.0)
-        title1.pinfTopInRelationTo(self.puzzleOnboardingView.bottomAnchor)
+        title1.pinTopInRelationTo(self.puzzleOnboardingView.bottomAnchor)
+        
+        title2.pinLeft(40.0)
+        title2.pinRight(40.0)
+        title2.pinSafeBottom(40.0)
+        title2.pinTopInRelationTo(self.puzzleOnboardingView.bottomAnchor)
     }
     
 }
