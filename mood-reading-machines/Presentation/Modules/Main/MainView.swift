@@ -58,7 +58,7 @@ extension MainView {
         self.baseView.tableView.register(TweetCell.self, forCellReuseIdentifier: "TweetCell")
         self.baseView.tableView.rowHeight = UITableViewAutomaticDimension
         self.baseView.tableView.estimatedRowHeight = 200
-        self.baseView.tableView.contentInset.top = self.baseView.headerView.maxHeight + 20
+        self.baseView.tableView.contentInset.top = self.baseView.headerView.maxHeight - 20
         
         if let url = URL(string: self.user.profileBackgroundImageUrl) {
             self.baseView.headerView.backgroundImage.kf.setImage(with: url)
@@ -97,11 +97,7 @@ extension MainView {
             }.subscribe(onNext: { [weak self] frame, tweet in
                 self?.showTweetMood(tweet: tweet, frame: frame)
             }).disposed(by: rx.disposeBag)
-//
-//        self.baseView.tableView.rx.modelSelected(TweetDisplay.self)
-//            .subscribe(onNext: { [weak self] tweet in
-//                self?.showTweetMood(tweet)
-//            }).disposed(by: rx.disposeBag)
+
     
     }
     
@@ -116,7 +112,7 @@ extension MainView {
     }
     
     func showTweetMood(tweet: TweetDisplay, frame: CGRect) {
-        let moodView = MoodView(originFrame: frame)
+        let moodView = MoodView(originFrame: frame, tweet: tweet)
         moodView.modalPresentationStyle = .overCurrentContext
         self.present(moodView, animated: false, completion: nil)
     }

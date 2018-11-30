@@ -18,14 +18,16 @@ class MoodView: UIViewController {
     //weak var delegate: AppActionable?
     
     let originFrame: CGRect
+    let tweet: TweetDisplay
     
     var openAnimator: UIViewPropertyAnimator?
     var closeAnimator: UIViewPropertyAnimator?
     
     var offset: CGFloat = 100.0
 
-    init(originFrame: CGRect) {
+    init(originFrame: CGRect, tweet: TweetDisplay) {
         self.originFrame = originFrame
+        self.tweet = tweet
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -39,9 +41,8 @@ class MoodView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.configureViews()
         self.setupViewModel()
-        self.setupBindings()
+        self.configureViews()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,22 +55,29 @@ class MoodView: UIViewController {
         super.viewDidAppear(animated)
         self.offset = self.view.frame.height - self.originFrame.height
         open()
-        
     }
     
     func open() {
         self.openAnimator = UIViewPropertyAnimator(duration: 0.5, curve: .easeOut, animations: {
-            self.baseView.container.frame = self.view.bounds
+            self.baseView.container.frame = self.endFrame()
+            self.baseView.blurView.effect = UIBlurEffect(style: .light)
+            self.baseView.cardView.backgroundColor = self.viewModel.backgroundColor
+            self.baseView.feelingLabel.alpha = 1.0
         })
         
         self.openAnimator?.startAnimation()
+    }
+    
+    func endFrame() -> CGRect {
+        let endHeight = self.view.bounds.height * 0.6
+        return CGRect(x: 0, y: self.view.frame.midY - endHeight / 2, width: self.view.bounds.width, height: endHeight)
     }
 }
 
 extension MoodView {
     
     func setupViewModel() {
-        self.viewModel = MoodViewModel()
+        self.viewModel = MoodViewModel(tweet: self.tweet)
     }
     
     func configureViews() {
@@ -77,11 +85,23 @@ extension MoodView {
         self.baseView.backgroundColor = .clear
         
         self.setupGestureRecognizer()
+        
+        self.baseView.titleLabel.font = self.baseView.titleLabel.font.withSize(self.viewModel.fontSize)
+        self.baseView.titleLabel.text = self.viewModel.text
+        self.baseView.feelingLabel.text = self.viewModel.feeling + "\n" + self.viewModel.emoji
     }
     
     func setupGestureRecognizer() {
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(self.handle(_:)))
-        self.baseView.container.addGestureRecognizer(panGesture)
+        self.baseView.addGestureRecognizer(panGesture)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        self.baseView.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func handleTap(_ gesture: UITapGestureRecognizer) {
+        setupCloseAnimator()
+        closeAnimator?.startAnimation()
     }
     
     @objc func handle(_ gesture: UIPanGestureRecognizer) {
@@ -104,14 +124,13 @@ extension MoodView {
     func setupCloseAnimator() {
         self.closeAnimator = UIViewPropertyAnimator(duration: 0.4, curve: .easeOut, animations: {
             self.baseView.container.frame = self.originFrame
+            self.baseView.blurView.effect = nil
+            self.baseView.cardView.backgroundColor = .white
+            self.baseView.feelingLabel.alpha = 0.0
         })
         
         self.closeAnimator?.addCompletion({ _ in
             self.dismiss(animated: false, completion: nil)
         })
-    }
-    
-    func setupBindings() {
-
     }
 }
