@@ -12,6 +12,7 @@ import Swinject
 
 enum AppAction {
     case finishOnboarding(user: User)
+    case openInfo
 }
 
 protocol AppActionable: class {
@@ -43,7 +44,6 @@ class AppCoordinator: Coordinator {
     }
     
     func start() {
-
         if let user = storage.user {
             showMainView(user: user)
         } else {
@@ -60,6 +60,8 @@ extension AppCoordinator: AppActionable {
         case .finishOnboarding(let user):
             self.storage.user = user
             self.showMainView(user: user)
+        case .openInfo:
+            self.showInfoView()
         }
     }
     
@@ -76,7 +78,13 @@ extension AppCoordinator {
     fileprivate func showMainView(user: User) {
         let view = container.resolve(MainView.self)!
         view.user = user
+        view.delegate = self
         self.currentView = view
     }
     
+    fileprivate func showInfoView() {
+        let view = container.resolve(InfoView.self)!
+        view.modalPresentationStyle = .overCurrentContext
+        self.currentView?.present(view, animated: false, completion: nil)
+    }
 }

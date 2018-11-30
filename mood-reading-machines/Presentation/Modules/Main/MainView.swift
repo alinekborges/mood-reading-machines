@@ -21,7 +21,7 @@ class MainView: UIViewController {
     let storage = KeychainStorage()
     var user: User!
     
-    //weak var delegate: AppActionable?
+    weak var delegate: AppActionable?
 
     init(twitterRepository: TwitterRepository, moodReadingService: MoodReadingService) {
         self.twitterRepository = twitterRepository
@@ -98,7 +98,11 @@ extension MainView {
                 self?.showTweetMood(tweet: tweet, frame: frame)
             }).disposed(by: rx.disposeBag)
 
-    
+        self.baseView.headerView.infoButton.rx.tap
+            .bind { [weak self] _ in
+                self?.delegate?.handle(AppAction.openInfo)
+            }.disposed(by: rx.disposeBag)
+        
     }
     
     func currentScrollPercentage(_ offset: CGFloat) -> CGFloat {

@@ -92,6 +92,9 @@
 		ADC82C5721B0CC1B0088B916 /* MoodBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC82C5421B0CC1B0088B916 /* MoodBaseView.swift */; };
 		ADC82C5821B0CC1B0088B916 /* MoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC82C5521B0CC1B0088B916 /* MoodView.swift */; };
 		ADC82C5921B0CC1B0088B916 /* MoodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC82C5621B0CC1B0088B916 /* MoodViewModel.swift */; };
+		ADC82C5E21B0E4FF0088B916 /* InfoBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC82C5B21B0E4FF0088B916 /* InfoBaseView.swift */; };
+		ADC82C5F21B0E4FF0088B916 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC82C5C21B0E4FF0088B916 /* InfoView.swift */; };
+		ADC82C6221B15D070088B916 /* URL+Browser.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC82C6121B15D070088B916 /* URL+Browser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -197,6 +200,9 @@
 		ADC82C5421B0CC1B0088B916 /* MoodBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodBaseView.swift; sourceTree = "<group>"; };
 		ADC82C5521B0CC1B0088B916 /* MoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodView.swift; sourceTree = "<group>"; };
 		ADC82C5621B0CC1B0088B916 /* MoodViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodViewModel.swift; sourceTree = "<group>"; };
+		ADC82C5B21B0E4FF0088B916 /* InfoBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoBaseView.swift; sourceTree = "<group>"; };
+		ADC82C5C21B0E4FF0088B916 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		ADC82C6121B15D070088B916 /* URL+Browser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Browser.swift"; sourceTree = "<group>"; };
 		C46296ACCD42CB9A5E4BCA16 /* Pods-mood-reading-machines.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mood-reading-machines.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mood-reading-machines/Pods-mood-reading-machines.debug.xcconfig"; sourceTree = "<group>"; };
 		FB7807A53637F90BB81558A1 /* Pods_mood_reading_machines.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mood_reading_machines.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -449,6 +455,7 @@
 				6BADDC742143229000661F51 /* Networking+Utils.swift */,
 				6BADDC78214322CA00661F51 /* UITextField+Utils.swift */,
 				6BADDC95214345B300661F51 /* EnvironmentVariables.swift */,
+				ADC82C6121B15D070088B916 /* URL+Browser.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -557,6 +564,7 @@
 		6BED69C4214315E400C39777 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				ADC82C5A21B0E4E90088B916 /* Info */,
 				ADC82C5321B0CC080088B916 /* Mood */,
 				6BADDC5521431C3100661F51 /* Onboarding */,
 				6BADDC4E21431C1D00661F51 /* Main */,
@@ -639,6 +647,15 @@
 				ADC82C5621B0CC1B0088B916 /* MoodViewModel.swift */,
 			);
 			path = Mood;
+			sourceTree = "<group>";
+		};
+		ADC82C5A21B0E4E90088B916 /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				ADC82C5B21B0E4FF0088B916 /* InfoBaseView.swift */,
+				ADC82C5C21B0E4FF0088B916 /* InfoView.swift */,
+			);
+			path = Info;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -913,6 +930,7 @@
 				AD2BC5DF21AF622E0086EEE0 /* SelectProfileViewModel.swift in Sources */,
 				6BADDC812143237500661F51 /* UILabel+Rx.swift in Sources */,
 				6BADDC6D214321B200661F51 /* CloudTagView.swift in Sources */,
+				ADC82C5E21B0E4FF0088B916 /* InfoBaseView.swift in Sources */,
 				6B6F5EA82144BEA30072E180 /* EnterUsernameBaseView.swift in Sources */,
 				6BADDC7D2143234000661F51 /* Rx+Optionals.swift in Sources */,
 				6B6F5EC52145CBAA0072E180 /* TweetCellBaseView.swift in Sources */,
@@ -921,6 +939,8 @@
 				6B6F5EA92144BEA30072E180 /* EnterUsernameView.swift in Sources */,
 				6BADDC6321431DDF00661F51 /* OnboardingView.swift in Sources */,
 				6BADDC5E21431D1D00661F51 /* UIView+Constraints.swift in Sources */,
+				ADC82C5F21B0E4FF0088B916 /* InfoView.swift in Sources */,
+				ADC82C6221B15D070088B916 /* URL+Browser.swift in Sources */,
 				6B0D7FBC21471AE0008243AE /* AnimatedPieceView.swift in Sources */,
 				AD2BC5DD21AF622E0086EEE0 /* SelectProfileBaseView.swift in Sources */,
 				6B1B1BB22142EC4400EFEA7F /* AppDelegate.swift in Sources */,

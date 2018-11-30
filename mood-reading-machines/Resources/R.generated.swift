@@ -75,8 +75,12 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 5 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 10 localization keys.
     struct localizable {
+      /// en translation: Aline Borges
+      /// 
+      /// Locales: en
+      static let info_name = Rswift.StringResource(key: "info_name", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Another twitter username
       /// 
       /// Locales: en
@@ -97,6 +101,29 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let enter_username_title = Rswift.StringResource(key: "enter_username_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: github.com/alinekborges
+      /// 
+      /// Locales: en
+      static let info_github = Rswift.StringResource(key: "info_github", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: linkedin.com/in/alinekborges
+      /// 
+      /// Locales: en
+      static let info_linkedin = Rswift.StringResource(key: "info_linkedin", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: made with ❤️ by
+      /// 
+      /// Locales: en
+      static let info_description = Rswift.StringResource(key: "info_description", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: ❤️ This app is open source ❤️  check out the code
+      /// 
+      /// Locales: en
+      static let info_openSource = Rswift.StringResource(key: "info_openSource", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      
+      /// en translation: Aline Borges
+      /// 
+      /// Locales: en
+      static func info_name(_: Void = ()) -> String {
+        return NSLocalizedString("info_name", bundle: R.hostingBundle, comment: "")
+      }
       
       /// en translation: Another twitter username
       /// 
@@ -131,6 +158,34 @@ struct R: Rswift.Validatable {
       /// Locales: en
       static func enter_username_title(_: Void = ()) -> String {
         return NSLocalizedString("enter_username_title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: github.com/alinekborges
+      /// 
+      /// Locales: en
+      static func info_github(_: Void = ()) -> String {
+        return NSLocalizedString("info_github", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: linkedin.com/in/alinekborges
+      /// 
+      /// Locales: en
+      static func info_linkedin(_: Void = ()) -> String {
+        return NSLocalizedString("info_linkedin", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: made with ❤️ by
+      /// 
+      /// Locales: en
+      static func info_description(_: Void = ()) -> String {
+        return NSLocalizedString("info_description", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: ❤️ This app is open source ❤️  check out the code
+      /// 
+      /// Locales: en
+      static func info_openSource(_: Void = ()) -> String {
+        return NSLocalizedString("info_openSource", bundle: R.hostingBundle, comment: "")
       }
       
       fileprivate init() {}
