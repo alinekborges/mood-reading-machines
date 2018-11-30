@@ -58,7 +58,7 @@ extension MainView {
         self.baseView.tableView.register(TweetCell.self, forCellReuseIdentifier: "TweetCell")
         self.baseView.tableView.rowHeight = UITableViewAutomaticDimension
         self.baseView.tableView.estimatedRowHeight = 200
-        self.baseView.tableView.contentInset.top = self.baseView.headerView.maxHeight
+        self.baseView.tableView.contentInset.top = self.baseView.headerView.maxHeight + 20
         
         if let url = URL(string: self.user.profileBackgroundImageUrl) {
             self.baseView.headerView.backgroundImage.kf.setImage(with: url)
@@ -85,11 +85,39 @@ extension MainView {
             .observeOn(MainScheduler.asyncInstance)
             .bind(to: self.baseView.headerView.rx.fractionComplete)
             .disposed(by: rx.disposeBag)
+        
+        let itemSelected = self.baseView.tableView.rx.itemSelected
+            .asObservable()
+        
+        let tweets = self.viewModel.tweets.asObservable()
+        
+        Observable.combineLatest(itemSelected, tweets) {($0, $1[$0.row])}
+            .map { [unowned self] index, tweet in
+                return (self.selectedFrame(index: index), tweet)
+            }.subscribe(onNext: { [weak self] frame, tweet in
+                self?.showTweetMood(tweet: tweet, frame: frame)
+            }).disposed(by: rx.disposeBag)
+//
+//        self.baseView.tableView.rx.modelSelected(TweetDisplay.self)
+//            .subscribe(onNext: { [weak self] tweet in
+//                self?.showTweetMood(tweet)
+//            }).disposed(by: rx.disposeBag)
     
     }
     
     func currentScrollPercentage(_ offset: CGFloat) -> CGFloat {
         return (offset + self.baseView.headerView.maxHeight) /
             (self.baseView.headerView.minHeight + self.baseView.headerView.maxHeight)
+    }
+    
+    func selectedFrame(index: IndexPath) -> CGRect {
+        let frame = self.baseView.tableView.cellForRow(at: index)?.frame ?? CGRect.zero
+        return self.view.convert(frame, from: self.baseView.tableView)
+    }
+    
+    func showTweetMood(tweet: TweetDisplay, frame: CGRect) {
+        let moodView = MoodView(originFrame: frame)
+        moodView.modalPresentationStyle = .overCurrentContext
+        self.present(moodView, animated: false, completion: nil)
     }
 }

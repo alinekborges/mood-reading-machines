@@ -22,6 +22,7 @@ class TweetCellBaseView: UIView {
         label.text = "Cell"
         label.textAlignment = .center
         label.numberOfLines = 0
+        label.font = UIFont.systemFont(ofSize: 22, weight: UIFont.Weight.light)
         label.textColor = .slate
         return label
     }()

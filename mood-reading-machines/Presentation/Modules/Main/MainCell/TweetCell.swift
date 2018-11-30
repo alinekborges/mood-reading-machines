@@ -41,4 +41,8 @@ class TweetCell: UITableViewCell {
             .disposed(by: rx.disposeBag)
     }
     
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        
+    }
+    
 }
