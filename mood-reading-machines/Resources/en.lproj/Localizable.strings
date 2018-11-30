@@ -13,3 +13,9 @@ onboarding_page2_title = "Oh well, we are not that far. Want to see me try it on
 
 select_profile_title = "Here are some suggestions of people to read the mood";
 select_profile_button = "Another twitter username";
+
+info_name = "Aline Borges";
+info_description = "made with ❤️ by";
+info_github = "github.com/alinekborges";
+info_linkedin = "linkedin.com/in/alinekborges";
+info_openSource = "❤️ This app is open source ❤️\n check out the code";

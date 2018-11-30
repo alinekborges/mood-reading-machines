@@ -46,6 +46,10 @@ extension DefaultContainer {
             return SelectProfileView(repository: resolver.resolve(TwitterRepository.self)!)
         }
         
+        self.container.register(InfoView.self) { _ in
+            InfoView()
+        }
+        
     }
     
 }

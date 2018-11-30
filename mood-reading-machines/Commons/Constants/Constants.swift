@@ -17,7 +17,7 @@ struct Constants {
     
     static let mediumFontSize: CGFloat = 20
     
-    static let github = "https://www.github.com/alinekborges"
+    static let githubProject = "https://www.github.com/alinekborges/mood-reading-machines"
     
     struct Fonts {
         

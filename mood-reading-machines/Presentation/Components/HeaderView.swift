@@ -15,8 +15,8 @@ class HeaderView: UIView {
     
     var heightConstraint: NSLayoutConstraint!
     
-    let maxHeight: CGFloat = 160
-    let minHeight: CGFloat = 90
+    let maxHeight: CGFloat = 180
+    let minHeight: CGFloat = 120
     
     private var animator: UIViewPropertyAnimator?
     
@@ -51,6 +51,12 @@ class HeaderView: UIView {
         return view
     }()
     
+    let infoButton: UIButton = {
+        let button = UIButton(type: UIButtonType.infoLight)
+        button.tintColor = .slate
+        return button
+    }()
+    
     init() {
         super.init(frame: CGRect(x: 0, y: 0, width: 300.0, height: 200.0))
         self.setupViews()
@@ -65,18 +71,23 @@ class HeaderView: UIView {
         self.addSubview(backgroundImage)
         self.addSubview(blurView)
         self.addSubview(usernameLabel)
+        self.addSubview(infoButton)
         
         self.backgroundImage.prepareForConstraints()
         self.usernameLabel.prepareForConstraints()
         self.blurView.prepareForConstraints()
+        self.infoButton.prepareForConstraints()
         
         self.backgroundImage.pinEdgesToSuperview()
         self.blurView.pinEdgesToSuperview()
         
-        self.usernameLabel.pinLeft()
-        self.usernameLabel.pinRight()
+        self.usernameLabel.pinLeft(40)
+        self.usernameLabel.pinRight(40)
         self.usernameLabel.pinBottom()
         self.usernameLabel.pinSafeTop()
+        
+        self.infoButton.pinRight(16)
+        self.infoButton.centerVerticallyinRelationTo(self.usernameLabel.centerYAnchor)
         
         setupAnimator()
     }
