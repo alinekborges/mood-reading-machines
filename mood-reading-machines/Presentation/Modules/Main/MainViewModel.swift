@@ -14,11 +14,18 @@ import RxSwiftUtilities
 class MainViewModel {
     
     let tweets: Driver<[TweetDisplay]>
+    let username: Driver<String>
     
-    init(user: User, twitterRepository: TwitterRepository, moodReadingService: MoodReadingService) {
+    init(user: User,
+         twitterRepository: TwitterRepository,
+         moodReadingService: MoodReadingService) {
+        
+        self.username = Driver.just(user.screenName)
+            .map { "@\($0)" }
         
         let tweetsResult = twitterRepository
             .getTweets(user.screenName)
+            //TODO: Add a separate mapper
             .map { array in
                 array.map { TweetDisplay(tweet: $0,
                                          mood: moodReadingService.predictMood($0.text)) }

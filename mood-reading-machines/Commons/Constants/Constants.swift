@@ -13,7 +13,7 @@ struct Constants {
     
     private init() {}
     
-    static let largeFontSize: CGFloat = 34
+    static let largeFontSize: CGFloat = 30
     
     static let mediumFontSize: CGFloat = 20
     

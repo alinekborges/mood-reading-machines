@@ -13,8 +13,11 @@ class MainBaseView: UIView {
     
     lazy var tableView: UITableView = {
         let tableView = UITableView()
+        tableView.separatorStyle = .none
         return tableView
     }()
+    
+    lazy var headerView: HeaderView = HeaderView()
     
     init() {
         super.init(frame: CGRect.zero)
@@ -29,10 +32,17 @@ class MainBaseView: UIView {
     func setupSubviews() {
         self.backgroundColor = .white
         self.addSubview(tableView)
+        self.addSubview(headerView)
         
         self.tableView.prepareForConstraints()
+        self.headerView.prepareForConstraints()
         
         self.tableView.pinEdgesToSuperview()
+        
+        self.headerView.pinTop()
+        self.headerView.pinLeft()
+        self.headerView.pinRight()
+        
     }
     
 }

@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Kingfisher
 
 class MainView: UIViewController {
     
@@ -57,14 +58,38 @@ extension MainView {
         self.baseView.tableView.register(TweetCell.self, forCellReuseIdentifier: "TweetCell")
         self.baseView.tableView.rowHeight = UITableViewAutomaticDimension
         self.baseView.tableView.estimatedRowHeight = 200
+        self.baseView.tableView.contentInset.top = self.baseView.headerView.maxHeight
+        
+        if let url = URL(string: self.user.profileBackgroundImageUrl) {
+            self.baseView.headerView.backgroundImage.kf.setImage(with: url)
+        }
+        
     }
     
     func setupBindings() {
+        
+        self.viewModel.username
+            .drive(self.baseView.headerView.usernameLabel.rx.text)
+            .disposed(by: rx.disposeBag)
+        
         self.viewModel.tweets
             .drive(self.baseView.tableView.rx
                 .items(cellIdentifier: "TweetCell",
                        cellType: TweetCell.self)) { _, element, cell in
                         cell.bind(element)
             }.disposed(by: rx.disposeBag)
+        
+        self.baseView.tableView.rx.contentOffset
+            .map { $0.y }
+            .map(currentScrollPercentage)
+            .observeOn(MainScheduler.asyncInstance)
+            .bind(to: self.baseView.headerView.rx.fractionComplete)
+            .disposed(by: rx.disposeBag)
+    
+    }
+    
+    func currentScrollPercentage(_ offset: CGFloat) -> CGFloat {
+        return (offset + self.baseView.headerView.maxHeight) /
+            (self.baseView.headerView.minHeight + self.baseView.headerView.maxHeight)
     }
 }
