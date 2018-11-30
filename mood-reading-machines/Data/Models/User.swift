@@ -22,7 +22,7 @@ struct User: Codable {
         case followersCount = "followers_count"
         case followingCount = "friends_count"
         case profileBackgroundColor = "profile_background_color"
-        case profileBackgroundImageUrl = "profile_background_image_url"
+        case profileBackgroundImageUrl = "profile_background_image_url_https" //TODO: figure out how to get banner authenticated
         case profileImageUrl = "profile_image_url"
         case screenName = "screen_name"
     }

@@ -20,8 +20,8 @@ extension UIView {
             return
         }
         self.leftAnchor.constraint(equalTo: superview.leftAnchor, constant: offset).isActive = true
-        self.rightAnchor.constraint(equalTo: superview.rightAnchor, constant: offset).isActive = true
-        self.bottomAnchor.constraint(equalTo: superview.bottomAnchor, constant: offset).isActive = true
+        self.rightAnchor.constraint(equalTo: superview.rightAnchor, constant: -offset).isActive = true
+        self.bottomAnchor.constraint(equalTo: superview.bottomAnchor, constant: -offset).isActive = true
         self.topAnchor.constraint(equalTo: superview.topAnchor, constant: offset).isActive = true
     }
     

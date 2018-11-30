@@ -8,33 +8,47 @@
 
 import Foundation
 import UIKit
+import RxSwift
+import RxCocoa
 
 class HeaderView: UIView {
     
-    lazy var headerImage: UIImageView = {
-        let image = UIImageView()
-        return image
-    }()
+    var heightConstraint: NSLayoutConstraint!
     
-    lazy var nameLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
+    let maxHeight: CGFloat = 160
+    let minHeight: CGFloat = 72
     
-    lazy var followersLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
+    private var animator: UIViewPropertyAnimator?
     
-    lazy var followingLabel: UILabel = {
+    var fractionComplete: CGFloat = 0.0 {
+        didSet {
+            self.animator?.fractionComplete = fractionComplete
+        }
+    }
+    
+    override var intrinsicContentSize: CGSize {
+        return CGSize(width: 30, height: self.maxHeight)
+    }
+    
+    lazy var usernameLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 32.0)
+        label.textColor = .slate
+        label.textAlignment = .center
         return label
     }()
     
     lazy var backgroundImage: UIImageView = {
         let image = UIImageView()
         image.contentMode = .scaleAspectFill
+        image.backgroundColor = .slate
         return image
+    }()
+    
+    lazy var blurView: UIVisualEffectView = {
+        let view = UIVisualEffectView()
+        view.contentView.backgroundColor = UIColor.white.withAlphaComponent(0.4)
+        return view
     }()
     
     init() {
@@ -48,18 +62,56 @@ class HeaderView: UIView {
     
     func setupViews() {
         
-        self.addSubview(headerImage)
-        self.addSubview(nameLabel)
-        self.addSubview(followersLabel)
-        self.addSubview(followingLabel)
         self.addSubview(backgroundImage)
+        self.addSubview(blurView)
+        self.addSubview(usernameLabel)
         
-        self.headerImage.prepareForConstraints()
-        self.nameLabel.prepareForConstraints()
-        self.followingLabel.prepareForConstraints()
-        self.followersLabel.prepareForConstraints()
         self.backgroundImage.prepareForConstraints()
+        self.usernameLabel.prepareForConstraints()
+        self.blurView.prepareForConstraints()
+        
+        self.backgroundImage.pinEdgesToSuperview()
+        self.blurView.pinEdgesToSuperview()
+        
+        self.usernameLabel.pinLeft()
+        self.usernameLabel.pinRight()
+        self.usernameLabel.pinBottom()
+        self.usernameLabel.pinSafeTop()
+        
+        setupAnimator()
+    }
+    
+    private func setupAnimator() {
+        
+        var topPadding: CGFloat = 0.0
+        
+        if #available(iOS 11.0, *) {
+            if let window = UIApplication.shared.delegate!.window {
+                topPadding = window?.safeAreaInsets.top ?? 0.0
+            }
+        }
+        
+        self.heightConstraint = self.constraintHeight(self.maxHeight + topPadding)
+        
+        self.animator = UIViewPropertyAnimator(duration: 0.25, curve: .linear, animations: {
+            self.heightConstraint.constant = self.minHeight + topPadding
+            self.usernameLabel.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+            self.blurView.effect = UIBlurEffect(style: .light)
+            self.superview?.layoutIfNeeded()
+            self.layoutIfNeeded()
+        })
+        
+        self.animator?.pausesOnCompletion = true
         
     }
     
+}
+
+extension Reactive where Base: HeaderView {
+    
+    var fractionComplete: Binder<CGFloat> {
+        return Binder(self.base) { header, fractionComplete in
+            header.fractionComplete = fractionComplete
+        }
+    }
 }

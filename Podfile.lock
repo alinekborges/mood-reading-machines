@@ -5,6 +5,7 @@ PODS:
   - KIF/Core (3.7.4)
   - KIF/IdentifierTests (3.7.4):
     - KIF/Core
+  - Kingfisher (4.10.1)
   - Moya/Core (11.0.2):
     - Alamofire (~> 4.1)
     - Result (~> 3.0)
@@ -36,6 +37,7 @@ PODS:
 DEPENDENCIES:
   - KIF
   - KIF/IdentifierTests
+  - Kingfisher
   - Moya/RxSwift
   - Nimble
   - Quick
@@ -53,6 +55,7 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - KIF
+    - Kingfisher
     - Moya
     - Nimble
     - Quick
@@ -71,6 +74,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   KIF: f3d01c109ee9d1cfe6b0f2bb2aa278e807e971e2
+  Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   Moya: a725035953bc1c0eb1be505ab903984501d82440
   Nimble: 2839b01d1b31f6a6a7777a221f0d91cf52e8e27b
   Quick: d17304d58d0d169dd0bd1c6e5c28e3318de32a1a
@@ -86,6 +90,6 @@ SPEC CHECKSUMS:
   SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
   Swinject: 2e964a80d70ab09b3949c99032711f89147bfd60
 
-PODFILE CHECKSUM: 1d5d98788cea973ed29462e46cb5a5861c61d89d
+PODFILE CHECKSUM: b2c5b4f11c39f0b4c9137ec6560125e7153ab43e
 
 COCOAPODS: 1.5.3

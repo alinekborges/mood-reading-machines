@@ -23,6 +23,9 @@ def common_pods
   
   #Security
   pod 'SwiftKeychainWrapper'
+  
+  #Images
+  pod 'Kingfisher'
 end
 
 target 'mood-reading-machines' do

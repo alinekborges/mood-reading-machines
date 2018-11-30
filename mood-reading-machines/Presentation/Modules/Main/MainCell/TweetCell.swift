@@ -13,11 +13,14 @@ class TweetCell: UITableViewCell {
     
     lazy var view = TweetCellBaseView()
     
+    var viewModel = TweetCellViewModel()
+    
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.addSubview(view)
         self.view.prepareForConstraints()
         self.view.pinEdgesToSuperview()
+        self.setupBindings()
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -25,8 +28,17 @@ class TweetCell: UITableViewCell {
     }
     
     func bind(_ tweet: TweetDisplay) {
-        self.view.titleLabel.text = tweet.text
-        print(tweet.mood)
+        self.viewModel.bind(tweet)
+    }
+    
+    func setupBindings() {
+        self.viewModel.text
+            .drive(view.titleLabel.rx.text)
+            .disposed(by: rx.disposeBag)
+        
+        self.viewModel.fontSize
+            .drive(view.titleLabel.rx.fontSize)
+            .disposed(by: rx.disposeBag)
     }
     
 }
