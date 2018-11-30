@@ -16,7 +16,7 @@ class HeaderView: UIView {
     var heightConstraint: NSLayoutConstraint!
     
     let maxHeight: CGFloat = 160
-    let minHeight: CGFloat = 72
+    let minHeight: CGFloat = 90
     
     private var animator: UIViewPropertyAnimator?
     

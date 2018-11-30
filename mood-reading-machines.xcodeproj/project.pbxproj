@@ -89,6 +89,9 @@
 		AD2BC5FA21B0A37F0086EEE0 /* TweetCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2BC5F921B0A37F0086EEE0 /* TweetCellViewModel.swift */; };
 		AD2BC5FC21B0B1A60086EEE0 /* MaterialCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2BC5FB21B0B1A60086EEE0 /* MaterialCardView.swift */; };
 		AD54EF3221AD5F6D0059FB73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD54EF3121AD5F6D0059FB73 /* Assets.xcassets */; };
+		ADC82C5721B0CC1B0088B916 /* MoodBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC82C5421B0CC1B0088B916 /* MoodBaseView.swift */; };
+		ADC82C5821B0CC1B0088B916 /* MoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC82C5521B0CC1B0088B916 /* MoodView.swift */; };
+		ADC82C5921B0CC1B0088B916 /* MoodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC82C5621B0CC1B0088B916 /* MoodViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -191,6 +194,9 @@
 		AD2BC5F921B0A37F0086EEE0 /* TweetCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetCellViewModel.swift; sourceTree = "<group>"; };
 		AD2BC5FB21B0B1A60086EEE0 /* MaterialCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialCardView.swift; sourceTree = "<group>"; };
 		AD54EF3121AD5F6D0059FB73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		ADC82C5421B0CC1B0088B916 /* MoodBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodBaseView.swift; sourceTree = "<group>"; };
+		ADC82C5521B0CC1B0088B916 /* MoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodView.swift; sourceTree = "<group>"; };
+		ADC82C5621B0CC1B0088B916 /* MoodViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodViewModel.swift; sourceTree = "<group>"; };
 		C46296ACCD42CB9A5E4BCA16 /* Pods-mood-reading-machines.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mood-reading-machines.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mood-reading-machines/Pods-mood-reading-machines.debug.xcconfig"; sourceTree = "<group>"; };
 		FB7807A53637F90BB81558A1 /* Pods_mood_reading_machines.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mood_reading_machines.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -551,6 +557,7 @@
 		6BED69C4214315E400C39777 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				ADC82C5321B0CC080088B916 /* Mood */,
 				6BADDC5521431C3100661F51 /* Onboarding */,
 				6BADDC4E21431C1D00661F51 /* Main */,
 			);
@@ -622,6 +629,16 @@
 				AD2BC5DC21AF622E0086EEE0 /* SelectProfileViewModel.swift */,
 			);
 			path = SelectProfile;
+			sourceTree = "<group>";
+		};
+		ADC82C5321B0CC080088B916 /* Mood */ = {
+			isa = PBXGroup;
+			children = (
+				ADC82C5421B0CC1B0088B916 /* MoodBaseView.swift */,
+				ADC82C5521B0CC1B0088B916 /* MoodView.swift */,
+				ADC82C5621B0CC1B0088B916 /* MoodViewModel.swift */,
+			);
+			path = Mood;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -880,6 +897,7 @@
 				6B6F5ECA2145D30A0072E180 /* TweetDisplay.swift in Sources */,
 				6BADDC832143239A00661F51 /* Observable+Retry.swift in Sources */,
 				6BADDC9D2143492900661F51 /* Tweet.swift in Sources */,
+				ADC82C5921B0CC1B0088B916 /* MoodViewModel.swift in Sources */,
 				AD2BC5F821B096990086EEE0 /* LoadingView.swift in Sources */,
 				6BADDC4621431A5100661F51 /* Coordinator.swift in Sources */,
 				6B7ED2A421474BC4000AE14C /* RightTopMask.swift in Sources */,
@@ -927,10 +945,12 @@
 				6B6F5EA32144BA380072E180 /* Sentiment.swift in Sources */,
 				6B6F5E8321444D230072E180 /* TwitterMoyaRouter.swift in Sources */,
 				6BADDC6421431DDF00661F51 /* OnboardingViewModel.swift in Sources */,
+				ADC82C5721B0CC1B0088B916 /* MoodBaseView.swift in Sources */,
 				6BADDC752143229000661F51 /* Networking+Utils.swift in Sources */,
 				6BED69CB2143181A00C39777 /* DefaultContainer.swift in Sources */,
 				6BADDC4421431A1A00661F51 /* R.generated.swift in Sources */,
 				6BADDC7B2143232100661F51 /* NSObject+Rx.swift in Sources */,
+				ADC82C5821B0CC1B0088B916 /* MoodView.swift in Sources */,
 				6B6F5EB92144C89B0072E180 /* TwitterTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
